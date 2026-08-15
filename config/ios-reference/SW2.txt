@@ -1,0 +1,96 @@
+! ==========================================================
+! CISCO IOS REFERENCE CONFIGURATION - SWITCH SW2 (Cisco 2960)
+! ==========================================================
+! Role: Access Switch (Employee & Guest AP Endpoints)
+! ==========================================================
+
+enable
+configure terminal
+
+! --- Hostname and Basic Settings ---
+hostname SW2
+ip domain-name meridian-trust.local
+enable secret cisco123
+
+! --- Local IT Admin Username for SSH Access ---
+username admin privilege 15 secret admin123
+
+! --- Generate SSH Cryptographic Key ---
+crypto key generate rsa
+1024
+
+! --- Enable SSH Version 2 ---
+ip ssh version 2
+
+! --- VLAN Creation & Naming ---
+vlan 10
+ name Employee
+vlan 20
+ name Guest
+vlan 30
+ name Server
+vlan 99
+ name Management
+exit
+
+! --- Switch Management Interface (SVI) & Default Gateway ---
+interface Vlan99
+ description Management Interface for SW2
+ ip address 10.10.99.3 255.255.255.0
+ no shutdown
+
+ip default-gateway 10.10.99.1
+
+! --- Trunk Interface Configuration ---
+! Port Gi0/2 connects to Switch SW1 Gi0/2
+interface GigabitEthernet0/2
+ description Trunk Link to SW1
+ switchport mode trunk
+ switchport trunk allowed vlan 10,20,30,99
+ no shutdown
+
+! --- Access Interface Configuration ---
+! Ports for Office Employees (VLAN 10 Employee)
+interface FastEthernet0/1
+ description PC-Emp1
+ switchport mode access
+ switchport access vlan 10
+ spanning-tree portfast
+
+interface FastEthernet0/2
+ description PC-Emp2
+ switchport mode access
+ switchport access vlan 10
+ spanning-tree portfast
+
+interface FastEthernet0/3
+ description PC-Manager
+ switchport mode access
+ switchport access vlan 10
+ spanning-tree portfast
+
+! Port for Guest Wi-Fi Access Point (VLAN 20 Guest)
+interface FastEthernet0/20
+ description WAP1 (Lobby Guest Wi-Fi)
+ switchport mode access
+ switchport access vlan 20
+ spanning-tree portfast
+
+! --- SEC-02: Device Management SSH Access Class ---
+access-list 99 permit 10.10.99.0 0.0.0.255
+access-list 99 deny any
+
+! --- Line Configurations (Apply Management ACL for SSH Access) ---
+line con 0
+ login local
+line vty 0 4
+ access-class 99 in
+ login local
+ transport input ssh
+line vty 5 15
+ access-class 99 in
+ login local
+ transport input ssh
+
+end
+write memory

@@ -1,0 +1,135 @@
+! ==========================================================
+! CISCO IOS REFERENCE CONFIGURATION - ROUTER R1 (Cisco 2911)
+! ==========================================================
+! Location: Meridian Trust Bank - Retail Branch
+! Role: Edge Router (Inter-VLAN, DHCP, NAT, ACL Enforcement)
+! ==========================================================
+
+enable
+configure terminal
+
+! --- Hostname and Basic Settings ---
+hostname R1
+ip domain-name meridian-trust.local
+enable secret cisco123
+
+! --- Local IT Admin Username for SSH Access ---
+username admin privilege 15 secret admin123
+
+! --- Generate SSH Cryptographic Key ---
+crypto key generate rsa
+1024
+
+! --- Enable SSH Version 2 ---
+ip ssh version 2
+
+! --- DHCP Pool Configuration (Exclude Static Gateway & Management Ranges) ---
+! Exclude VLAN gateways
+ip dhcp excluded-address 10.10.10.1
+ip dhcp excluded-address 10.10.20.1
+ip dhcp excluded-address 10.10.30.1
+ip dhcp excluded-address 10.10.99.1
+
+! Exclude static IPs (e.g., DNS/Server in VLAN 30, and switch IPs in VLAN 99)
+ip dhcp excluded-address 10.10.30.2 10.10.30.254
+ip dhcp excluded-address 10.10.99.2 10.10.99.9
+ip dhcp excluded-address 10.10.99.51 10.10.99.254
+
+! DHCP Pool for Employee VLAN 10
+ip dhcp pool Employee-Pool
+ network 10.10.10.0 255.255.255.0
+ default-router 10.10.10.1
+ dns-server 10.10.30.10
+ lease 1 0 0
+
+! DHCP Pool for Guest VLAN 20
+ip dhcp pool Guest-Pool
+ network 10.10.20.0 255.255.255.0
+ default-router 10.10.20.1
+ dns-server 10.10.30.10
+ lease 0 4 0
+
+! DHCP Pool for Management VLAN 99
+ip dhcp pool Management-Pool
+ network 10.10.99.0 255.255.255.0
+ default-router 10.10.99.1
+ dns-server 10.10.30.10
+ lease 1 0 0
+
+! --- Access Control Lists (ACLs) ---
+
+! SEC-01 & SEC-03: Guest ACL (Allow DNS to internal server, block rest of VLAN 30, allow web/other traffic)
+ip access-list extended GUEST_IN
+ permit udp 10.10.20.0 0.0.0.255 host 10.10.30.10 eq 53
+ deny ip 10.10.20.0 0.0.0.255 10.10.30.0 0.0.0.255
+ permit ip any any
+
+! NAT Access List (Specifies subnets allowed to access the Internet)
+ip access-list standard NAT_ACL
+ permit 10.10.10.0 0.0.0.255
+ permit 10.10.20.0 0.0.0.255
+ permit 10.10.99.0 0.0.0.255
+
+! SEC-02: Device Management ACL (Only allow SSH from Management Subnet)
+access-list 99 permit 10.10.99.0 0.0.0.255
+access-list 99 deny any
+
+! --- WAN Interface Configuration (GigabitEthernet0/0) ---
+interface GigabitEthernet0/0
+ description WAN Uplink to ISP
+ ip address 192.168.1.100 255.255.255.0
+ ip nat outside
+ no shutdown
+
+! --- LAN Interface Configuration (Router-on-a-Stick subinterfaces) ---
+interface GigabitEthernet0/1
+ description Trunk Link to SW1
+ no ip address
+ no shutdown
+
+! Sub-interface Employee (VLAN 10)
+interface GigabitEthernet0/1.10
+ description Employee VLAN Gateway
+ encapsulation dot1Q 10
+ ip address 10.10.10.1 255.255.255.0
+ ip nat inside
+
+! Sub-interface Guest (VLAN 20)
+interface GigabitEthernet0/1.20
+ description Guest VLAN Gateway
+ encapsulation dot1Q 20
+ ip address 10.10.20.1 255.255.255.0
+ ip access-group GUEST_IN in
+ ip nat inside
+
+! Sub-interface Server (VLAN 30)
+interface GigabitEthernet0/1.30
+ description Server VLAN Gateway
+ encapsulation dot1Q 30
+ ip address 10.10.30.1 255.255.255.0
+ ip nat inside
+
+! Sub-interface Management (VLAN 99)
+interface GigabitEthernet0/1.99
+ description Management VLAN Gateway
+ encapsulation dot1Q 99
+ ip address 10.10.99.1 255.255.255.0
+ ip nat inside
+
+! --- NAT Translation Configuration ---
+ip nat inside source list NAT_ACL interface GigabitEthernet0/0 overload
+
+! --- Line Configurations (Apply Management ACL for SSH Access) ---
+line con 0
+ login local
+line vty 0 4
+ access-class 99 in
+ login local
+ transport input ssh
+line vty 5 15
+ access-class 99 in
+ login local
+ transport input ssh
+
+end
+write memory

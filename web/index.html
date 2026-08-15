@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartBranch 360 - Interactive Network Dashboard</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="brand">
+                <div class="brand-logo">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M2 17L12 22L22 17" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M2 12L12 17L22 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </div>
+                <div class="brand-text">
+                    <h1>SmartBranch 360</h1>
+                    <span>Meridian Trust Bank</span>
+                </div>
+            </div>
+            
+            <nav class="nav-menu">
+                <button class="nav-btn active" data-tab="validator">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                    <span>Configuration Audit</span>
+                </button>
+                <button class="nav-btn" data-tab="topology">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/></svg>
+                    <span>Topology Viewer</span>
+                </button>
+                <button class="nav-btn" data-tab="plan">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                    <span>Design Blueprint</span>
+                </button>
+                <button class="nav-btn" data-tab="configs">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                    <span>IOS Configs</span>
+                </button>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="status-indicator">
+                    <span class="dot pulse-green"></span>
+                    <span class="status-label">Validator Engine Active</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="content-area">
+            <!-- HEADER -->
+            <header class="main-header">
+                <div class="header-title">
+                    <h2 id="page-title">Configuration Audit</h2>
+                    <p id="page-subtitle">Pasted show-command logs validation vs blueprint</p>
+                </div>
+                <div class="user-profile">
+                    <div class="avatar">IT</div>
+                    <div class="profile-info">
+                        <span class="name">Network Admin</span>
+                        <span class="role">Lead Engineer</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- TAB 1: VALIDATOR -->
+            <section class="tab-content active" id="tab-validator">
+                <div class="grid-layout">
+                    <!-- Left: Paste console logs -->
+                    <div class="card glass-card span-8">
+                        <div class="card-header">
+                            <h3>Cisco Device Command Output Logs</h3>
+                            <div class="actions">
+                                <label for="sample-select">Load Fault Sample:</label>
+                                <select id="sample-select">
+                                    <option value="clean">Clean Configuration (0 issues)</option>
+                                    <option value="fault_wrong_gateway">Wrong Default Gateway IP on R1</option>
+                                    <option value="fault_missing_vlan_trunk">Missing VLAN 20 on SW2 Trunk</option>
+                                    <option value="fault_bad_dhcp">DHCP Pool Gateway Conflict</option>
+                                    <option value="fault_acl_blocking_dns">ACL Rule Order Blocking DNS</option>
+                                    <option value="fault_guest_server_leak">Guest-to-Server Security Leak</option>
+                                    <option value="fault_insecure_ssh">SSH ACL Permitting Employee Subnet</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <textarea id="console-logs" placeholder="Paste your show commands here, or load a fault sample above..." spellcheck="false"></textarea>
+                            <button id="run-audit-btn" class="primary-btn">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                                Run Static Validation Audit
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Right: Results -->
+                    <div class="card glass-card span-4 results-sidebar">
+                        <div class="card-header">
+                            <h3>Validation Results</h3>
+                            <span id="finding-count" class="badge badge-neutral">0 issues</span>
+                        </div>
+                        <div class="card-body scroll-panel">
+                            <div id="results-placeholder" class="placeholder-view">
+                                <div class="placeholder-icon">
+                                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                                </div>
+                                <p>Load a sample and press audit to inspect the logs for configuration conflicts.</p>
+                            </div>
+                            <div id="results-list" class="results-list-container hidden">
+                                <!-- Dynamically populated finding cards -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 2: TOPOLOGY -->
+            <section class="tab-content" id="tab-topology">
+                <div class="grid-layout">
+                    <!-- Left: Interactive Topology SVG -->
+                    <div class="card glass-card span-8 topology-container">
+                        <div class="card-header">
+                            <h3>Physical & Logical Port Connections</h3>
+                            <span class="instruction">Hover over devices or links to display metadata specs</span>
+                        </div>
+                        <div class="card-body topo-body">
+                            <svg id="network-svg" viewBox="0 0 800 500" width="100%" height="100%">
+                                <!-- Define defs for gradients and markers -->
+                                <defs>
+                                    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stop-color="#0052D4"/>
+                                        <stop offset="100%" stop-color="#4364F7"/>
+                                    </linearGradient>
+                                    <linearGradient id="purpleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stop-color="#B224EF"/>
+                                        <stop offset="100%" stop-color="#7579E7"/>
+                                    </linearGradient>
+                                    <linearGradient id="redGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stop-color="#FF416C"/>
+                                        <stop offset="100%" stop-color="#FF4B2B"/>
+                                    </linearGradient>
+                                    <linearGradient id="greenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stop-color="#11998e"/>
+                                        <stop offset="100%" stop-color="#38ef7d"/>
+                                    </linearGradient>
+                                    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stop-color="#f857a6"/>
+                                        <stop offset="100%" stop-color="#ff5858"/>
+                                    </linearGradient>
+                                </defs>
+
+                                <!-- Links / Connectors (Paths) -->
+                                <!-- WAN Link -->
+                                <line x1="400" y1="40" x2="400" y2="100" class="cable-link wan-link" data-link="wan"/>
+                                <!-- Router R1 to Switch SW1 -->
+                                <line x1="400" y1="100" x2="400" y2="200" class="cable-link trunk-link" data-link="trunk1"/>
+                                <!-- Switch SW1 to Switch SW2 -->
+                                <line x1="400" y1="200" x2="200" y2="280" class="cable-link trunk-link" data-link="trunk2"/>
+
+                                <!-- SW1 Access Links -->
+                                <line x1="400" y1="200" x2="520" y2="200" class="cable-link access-link server-vlan" data-link="sw1-srv"/>
+                                <line x1="400" y1="200" x2="600" y2="130" class="cable-link access-link mgt-vlan" data-link="sw1-admin"/>
+                                <line x1="400" y1="200" x2="560" y2="280" class="cable-link access-link emp-vlan" data-link="sw1-t1"/>
+                                <line x1="400" y1="200" x2="480" y2="300" class="cable-link access-link emp-vlan" data-link="sw1-t2"/>
+
+                                <!-- SW2 Access Links -->
+                                <line x1="200" y1="280" x2="80" y2="220" class="cable-link access-link guest-vlan" data-link="sw2-ap"/>
+                                <line x1="200" y1="280" x2="80" y2="340" class="cable-link access-link emp-vlan" data-link="sw2-emp1"/>
+                                <line x1="200" y1="280" x2="160" y2="380" class="cable-link access-link emp-vlan" data-link="sw2-emp2"/>
+                                <line x1="200" y1="280" x2="260" y2="380" class="cable-link access-link emp-vlan" data-link="sw2-mgr"/>
+
+                                <!-- Wireless Client Links -->
+                                <line x1="80" y1="220" x2="50" y2="140" class="cable-link wireless-link" stroke-dasharray="4,4"/>
+                                <line x1="80" y1="220" x2="140" y2="140" class="cable-link wireless-link" stroke-dasharray="4,4"/>
+
+                                <!-- Device Nodes -->
+                                <!-- ISP Cloud -->
+                                <g class="node device-node" id="ISP" data-device="ISP">
+                                    <circle cx="400" cy="40" r="22" fill="#333" stroke="#555" stroke-width="2"/>
+                                    <text x="400" y="44" fill="#fff" font-size="10" font-weight="bold" text-anchor="middle">WAN</text>
+                                </g>
+
+                                <!-- Router R1 -->
+                                <g class="node device-node" id="R1" data-device="R1">
+                                    <circle cx="400" cy="100" r="25" fill="url(#blueGrad)"/>
+                                    <path d="M388 95L400 87L412 95M388 105L400 113L412 105" stroke="#fff" stroke-width="2" stroke-linecap="round" fill="none"/>
+                                    <text x="400" y="103" fill="#fff" font-size="11" font-weight="bold" text-anchor="middle">R1</text>
+                                    <text x="400" y="140" fill="#a0aec0" font-size="10" text-anchor="middle">Cisco 2911</text>
+                                </g>
+
+                                <!-- Switch SW1 -->
+                                <g class="node device-node" id="SW1" data-device="SW1">
+                                    <rect x="375" y="175" width="50" height="30" rx="3" fill="url(#purpleGrad)"/>
+                                    <path d="M380 190H420M385 183L380 190L385 197M415 183L420 190L415 197" stroke="#fff" stroke-width="1.5" fill="none"/>
+                                    <text x="400" y="222" fill="#fff" font-size="11" font-weight="bold" text-anchor="middle">SW1</text>
+                                    <text x="400" y="235" fill="#a0aec0" font-size="9" text-anchor="middle">Core Switch</text>
+                                </g>
+
+                                <!-- Switch SW2 -->
+                                <g class="node device-node" id="SW2" data-device="SW2">
+                                    <rect x="175" y="265" width="50" height="30" rx="3" fill="url(#purpleGrad)"/>
+                                    <path d="M180 280H220M185 273L180 280L185 287M215 273L220 280L215 287" stroke="#fff" stroke-width="1.5" fill="none"/>
+                                    <text x="200" y="312" fill="#fff" font-size="11" font-weight="bold" text-anchor="middle">SW2</text>
+                                    <text x="200" y="325" fill="#a0aec0" font-size="9" text-anchor="middle">Access Switch</text>
+                                </g>
+
+                                <!-- Server SRV1 -->
+                                <g class="node device-node" id="SRV1" data-device="SRV1">
+                                    <rect x="520" y="180" width="36" height="40" rx="3" fill="url(#redGrad)"/>
+                                    <rect x="525" y="188" width="26" height="5" rx="1" fill="#fff" opacity="0.8"/>
+                                    <rect x="525" y="198" width="26" height="5" rx="1" fill="#fff" opacity="0.8"/>
+                                    <circle cx="530" cy="210" r="2" fill="#52fa7c"/>
+                                    <text x="538" y="235" fill="#a0aec0" font-size="10" text-anchor="middle">SRV1</text>
+                                </g>
+
+                                <!-- Wireless AP WAP1 -->
+                                <g class="node device-node" id="WAP1" data-device="WAP1">
+                                    <circle cx="80" cy="220" r="18" fill="url(#goldGrad)"/>
+                                    <!-- AP antenna symbols -->
+                                    <path d="M72 220C72 215 88 215 88 220" stroke="#fff" stroke-width="1.5" fill="none"/>
+                                    <path d="M75 220C75 217 85 217 85 220" stroke="#fff" stroke-width="1.5" fill="none"/>
+                                    <line x1="80" y1="210" x2="80" y2="220" stroke="#fff" stroke-width="2"/>
+                                    <text x="80" y="252" fill="#a0aec0" font-size="10" text-anchor="middle">WAP1</text>
+                                </g>
+
+                                <!-- Admin PC -->
+                                <g class="node device-node" id="PC-Admin" data-device="PC-Admin">
+                                    <rect x="580" y="100" width="30" height="20" rx="2" fill="#4a5568" stroke="#cbd5e0" stroke-width="1.5"/>
+                                    <rect x="590" y="120" width="10" height="6" fill="#718096"/>
+                                    <line x1="585" y1="126" x2="605" y2="126" stroke="#cbd5e0" stroke-width="1.5"/>
+                                    <text x="635" y="115" fill="#cbd5e0" font-size="10">PC-Admin</text>
+                                </g>
+
+                                <!-- Teller 1 PC -->
+                                <g class="node device-node" id="PC-Teller1" data-device="PC-Teller1">
+                                    <rect x="550" y="270" width="24" height="16" rx="2" fill="#2d3748" stroke="#718096" stroke-width="1.5"/>
+                                    <line x1="552" y1="290" x2="572" y2="290" stroke="#718096" stroke-width="1.5"/>
+                                    <text x="582" y="282" fill="#a0aec0" font-size="9">PC-Teller1</text>
+                                </g>
+
+                                <!-- Teller 2 PC -->
+                                <g class="node device-node" id="PC-Teller2" data-device="PC-Teller2">
+                                    <rect x="470" y="295" width="24" height="16" rx="2" fill="#2d3748" stroke="#718096" stroke-width="1.5"/>
+                                    <line x1="472" y1="315" x2="492" y2="315" stroke="#718096" stroke-width="1.5"/>
+                                    <text x="460" y="325" fill="#a0aec0" font-size="9">PC-Teller2</text>
+                                </g>
+
+                                <!-- Employee 1 PC -->
+                                <g class="node device-node" id="PC-Emp1" data-device="PC-Emp1">
+                                    <rect x="68" y="335" width="24" height="16" rx="2" fill="#2d3748" stroke="#718096" stroke-width="1.5"/>
+                                    <line x1="70" y1="355" x2="90" y2="355" stroke="#718096" stroke-width="1.5"/>
+                                    <text x="80" y="365" fill="#a0aec0" font-size="9" text-anchor="middle">PC-Emp1</text>
+                                </g>
+
+                                <!-- Employee 2 PC -->
+                                <g class="node device-node" id="PC-Emp2" data-device="PC-Emp2">
+                                    <rect x="148" y="375" width="24" height="16" rx="2" fill="#2d3748" stroke="#718096" stroke-width="1.5"/>
+                                    <line x1="150" y1="395" x2="170" y2="395" stroke="#718096" stroke-width="1.5"/>
+                                    <text x="160" y="405" fill="#a0aec0" font-size="9" text-anchor="middle">PC-Emp2</text>
+                                </g>
+
+                                <!-- Manager PC -->
+                                <g class="node device-node" id="PC-Manager" data-device="PC-Manager">
+                                    <rect x="248" y="375" width="24" height="16" rx="2" fill="#2d3748" stroke="#718096" stroke-width="1.5"/>
+                                    <line x1="250" y1="395" x2="270" y2="395" stroke="#718096" stroke-width="1.5"/>
+                                    <text x="260" y="405" fill="#a0aec0" font-size="9" text-anchor="middle">PC-Mgr</text>
+                                </g>
+
+                                <!-- Laptop Guest 1 -->
+                                <g class="node device-node" id="Laptop-Guest1" data-device="Laptop-Guest1">
+                                    <polygon points="35,130 65,130 60,137 40,137" fill="#4a5568" stroke="#cbd5e0" stroke-width="1"/>
+                                    <line x1="30" y1="138" x2="70" y2="138" stroke="#cbd5e0" stroke-width="1.5"/>
+                                    <text x="50" y="122" fill="#a0aec0" font-size="9" text-anchor="middle">Guest1</text>
+                                </g>
+
+                                <!-- Laptop Guest 2 -->
+                                <g class="node device-node" id="Laptop-Guest2" data-device="Laptop-Guest2">
+                                    <polygon points="125,130 155,130 150,137 130,137" fill="#4a5568" stroke="#cbd5e0" stroke-width="1"/>
+                                    <line x1="120" y1="138" x2="160" y2="138" stroke="#cbd5e0" stroke-width="1.5"/>
+                                    <text x="140" y="122" fill="#a0aec0" font-size="9" text-anchor="middle">Guest2</text>
+                                </g>
+
+                                <!-- Legend overlay -->
+                                <g transform="translate(620,380)">
+                                    <rect x="0" y="0" width="165" height="110" rx="5" fill="#111" stroke="#333" stroke-width="1" opacity="0.9"/>
+                                    <text x="10" y="18" fill="#fff" font-size="10" font-weight="bold">VLAN Legend</text>
+                                    <line x1="10" y1="32" x2="30" y2="32" stroke="#48bb78" stroke-width="2"/>
+                                    <text x="38" y="35" fill="#cbd5e0" font-size="9">VLAN 10 Employee</text>
+                                    <line x1="10" y1="50" x2="30" y2="50" stroke="#ed8936" stroke-width="2"/>
+                                    <text x="38" y="53" fill="#cbd5e0" font-size="9">VLAN 20 Guest</text>
+                                    <line x1="10" y1="68" x2="30" y2="68" stroke="#e53e3e" stroke-width="2"/>
+                                    <text x="38" y="71" fill="#cbd5e0" font-size="9">VLAN 30 Server</text>
+                                    <line x1="10" y1="86" x2="30" y2="86" stroke="#9f7aea" stroke-width="2"/>
+                                    <text x="38" y="89" fill="#cbd5e0" font-size="9">VLAN 99 Management</text>
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- Right: Info Panel -->
+                    <div class="card glass-card span-4 info-sidebar">
+                        <div class="card-header">
+                            <h3 id="info-title">Network Info Profile</h3>
+                        </div>
+                        <div class="card-body">
+                            <div id="info-default-view" class="placeholder-view">
+                                <div class="placeholder-icon">
+                                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                                </div>
+                                <p>Hover over any device, switch, router subinterface, or physical port link on the topology canvas to display addressing details and port connections.</p>
+                            </div>
+                            <div id="info-detail-view" class="info-details hidden">
+                                <div class="detail-header">
+                                    <span id="device-type-badge" class="badge">Router</span>
+                                    <h4 id="device-name-title">R1</h4>
+                                </div>
+                                <div class="detail-list">
+                                    <div class="detail-item">
+                                        <span class="label">Model:</span>
+                                        <span class="value" id="val-model">Cisco 2911</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="label">Primary Role:</span>
+                                        <span class="value" id="val-role">Edge Gateway & Inter-VLAN Routing</span>
+                                    </div>
+                                    <div id="additional-details">
+                                        <!-- Custom info based on node -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 3: PLAN -->
+            <section class="tab-content" id="tab-plan">
+                <div class="grid-layout">
+                    <!-- VLAN Table -->
+                    <div class="card glass-card span-6">
+                        <div class="card-header">
+                            <h3>VLAN & Addressing Blueprint</h3>
+                        </div>
+                        <div class="card-body">
+                            <table class="grid-table">
+                                <thead>
+                                    <tr>
+                                        <th>VLAN ID</th>
+                                        <th>VLAN Name</th>
+                                        <th>Subnet Range</th>
+                                        <th>Gateway IP</th>
+                                        <th>DHCP Pool Scope</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><span class="vlan-badge employee-vlan-bg">10</span></td>
+                                        <td><strong>Employee</strong></td>
+                                        <td>10.10.10.0/24</td>
+                                        <td>10.10.10.1</td>
+                                        <td>10.10.10.10 - 10.10.10.250</td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="vlan-badge guest-vlan-bg">20</span></td>
+                                        <td><strong>Guest</strong></td>
+                                        <td>10.10.20.0/24</td>
+                                        <td>10.10.20.1</td>
+                                        <td>10.10.20.10 - 10.10.20.250</td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="vlan-badge server-vlan-bg">30</span></td>
+                                        <td><strong>Server</strong></td>
+                                        <td>10.10.30.0/24</td>
+                                        <td>10.10.30.1</td>
+                                        <td>None (Static Assign Only)</td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="vlan-badge mgt-vlan-bg">99</span></td>
+                                        <td><strong>Management</strong></td>
+                                        <td>10.10.99.0/24</td>
+                                        <td>10.10.99.1</td>
+                                        <td>10.10.99.10 - 10.10.99.50</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Security Policies Table -->
+                    <div class="card glass-card span-6">
+                        <div class="card-header">
+                            <h3>Security Policy Matrix</h3>
+                        </div>
+                        <div class="card-body">
+                            <table class="grid-table">
+                                <thead>
+                                    <tr>
+                                        <th>Policy ID</th>
+                                        <th>Target Traffic Flow</th>
+                                        <th>Access Rule (Enforcement)</th>
+                                        <th>Security Profile</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><span class="policy-badge red-badge">SEC-01</span></td>
+                                        <td>Guest Subnet &rarr; Server Subnet</td>
+                                        <td><strong>DENY IP</strong> (Router R1 Gi0/1.20 in)</td>
+                                        <td>Blocks guest endpoints in lobby from accessing local banking records</td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="policy-badge green-badge">SEC-02</span></td>
+                                        <td>VLAN 20 Guests &rarr; Server DNS (10.10.30.10:53)</td>
+                                        <td><strong>PERMIT UDP Domain</strong> (Router R1 Gi0/1.20 in)</td>
+                                        <td>Allows guests to query core DNS server for external lookup resolution</td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="policy-badge purple-badge">SEC-03</span></td>
+                                        <td>VLAN 99 Management Subnet &rarr; Device SSH</td>
+                                        <td><strong>PERMIT TCP Port 22</strong> (VTY Lines 0-15 access-class)</td>
+                                        <td>Ensures CLI administrative access is restricted to IT management network</td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="policy-badge orange-badge">SEC-04</span></td>
+                                        <td>Other subnets &rarr; Device SSH</td>
+                                        <td><strong>DENY ALL TCP Port 22</strong> (VTY Lines 0-15)</td>
+                                        <td>Stops internal users/guests from initiating SSH logins to network equipment</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 4: CONFIGS -->
+            <section class="tab-content" id="tab-configs">
+                <div class="card glass-card">
+                    <div class="card-header">
+                        <h3>Cisco IOS Command Config Files</h3>
+                        <div class="actions font-actions">
+                            <button class="config-device-btn active" data-device-config="r1">Router R1</button>
+                            <button class="config-device-btn" data-device-config="sw1">Switch SW1</button>
+                            <button class="config-device-btn" data-device-config="sw2">Switch SW2</button>
+                            <button id="copy-config-btn" class="secondary-btn">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                                Copy Configuration
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body config-pre-container">
+                        <!-- R1 Reference Config -->
+                        <pre id="pre-config-r1" class="config-pre active">Loading Router R1 reference configurations...</pre>
+                        <!-- SW1 Reference Config -->
+                        <pre id="pre-config-sw1" class="config-pre">Loading Switch SW1 reference configurations...</pre>
+                        <!-- SW2 Reference Config -->
+                        <pre id="pre-config-sw2" class="config-pre">Loading Switch SW2 reference configurations...</pre>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Main JS app logic -->
+    <script src="app.js"></script>
+</body>
+</html>

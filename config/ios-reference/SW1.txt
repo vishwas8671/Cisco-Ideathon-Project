@@ -1,0 +1,104 @@
+! ==========================================================
+! CISCO IOS REFERENCE CONFIGURATION - SWITCH SW1 (Cisco 2960)
+! ==========================================================
+! Role: Distribution/Core Switch (VLANs, Trunking, SVIs)
+! ==========================================================
+
+enable
+configure terminal
+
+! --- Hostname and Basic Settings ---
+hostname SW1
+ip domain-name meridian-trust.local
+enable secret cisco123
+
+! --- Local IT Admin Username for SSH Access ---
+username admin privilege 15 secret admin123
+
+! --- Generate SSH Cryptographic Key ---
+crypto key generate rsa
+1024
+
+! --- Enable SSH Version 2 ---
+ip ssh version 2
+
+! --- VLAN Creation & Naming ---
+vlan 10
+ name Employee
+vlan 20
+ name Guest
+vlan 30
+ name Server
+vlan 99
+ name Management
+exit
+
+! --- Switch Management Interface (SVI) & Default Gateway ---
+interface Vlan99
+ description Management Interface for SW1
+ ip address 10.10.99.2 255.255.255.0
+ no shutdown
+
+ip default-gateway 10.10.99.1
+
+! --- Trunk Interface Configuration ---
+! Port Gi0/1 connects to Router R1 Gi0/1
+interface GigabitEthernet0/1
+ description Trunk Link to Router R1
+ switchport mode trunk
+ switchport trunk allowed vlan 10,20,30,99
+ no shutdown
+
+! Port Gi0/2 connects to Switch SW2 Gi0/2
+interface GigabitEthernet0/2
+ description Trunk Link to SW2
+ switchport mode trunk
+ switchport trunk allowed vlan 10,20,30,99
+ no shutdown
+
+! --- Access Interface Configuration ---
+! Ports for Teller Systems (VLAN 10 Employee)
+interface FastEthernet0/1
+ description PC-Teller1
+ switchport mode access
+ switchport access vlan 10
+ spanning-tree portfast
+
+interface FastEthernet0/2
+ description PC-Teller2
+ switchport mode access
+ switchport access vlan 10
+ spanning-tree portfast
+
+! Port for Server (VLAN 30 Server)
+interface FastEthernet0/10
+ description SRV1 (Core Banking & DNS Server)
+ switchport mode access
+ switchport access vlan 30
+ spanning-tree portfast
+
+! Port for Local IT Admin Workstation (VLAN 99 Management)
+interface FastEthernet0/11
+ description PC-Admin
+ switchport mode access
+ switchport access vlan 99
+ spanning-tree portfast
+
+! --- SEC-02: Device Management SSH Access Class ---
+access-list 99 permit 10.10.99.0 0.0.0.255
+access-list 99 deny any
+
+! --- Line Configurations (Apply Management ACL for SSH Access) ---
+line con 0
+ login local
+line vty 0 4
+ access-class 99 in
+ login local
+ transport input ssh
+line vty 5 15
+ access-class 99 in
+ login local
+ transport input ssh
+
+end
+write memory

@@ -1,0 +1,16 @@
+# Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+
+# IDE files
+.vscode/
+.idea/
+.project
+.settings/
+
+# OS specific files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
