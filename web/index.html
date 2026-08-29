@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SmartBranch 360 - Interactive Network Dashboard</title>
+    <title>SmartBranch 360 - Cisco Networking Dashboard</title>
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,33 +25,61 @@
                 </div>
                 <div class="brand-text">
                     <h1>SmartBranch 360</h1>
-                    <span>Meridian Trust Bank</span>
+                    <span>Cisco Virtual Internship</span>
                 </div>
             </div>
             
             <nav class="nav-menu">
-                <button class="nav-btn active" data-tab="validator">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-                    <span>Configuration Audit</span>
+                <button class="nav-btn active" data-tab="dashboard">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/></svg>
+                    <span>Dashboard</span>
                 </button>
                 <button class="nav-btn" data-tab="topology">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/></svg>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="currentColor" stroke-width="2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg>
                     <span>Topology Viewer</span>
                 </button>
                 <button class="nav-btn" data-tab="plan">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
-                    <span>Design Blueprint</span>
+                    <span>VLAN & IP Blueprint</span>
+                </button>
+                <button class="nav-btn" data-tab="security">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                    <span>Security Matrix</span>
+                </button>
+                <button class="nav-btn" data-tab="tests">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                    <span>Connectivity Tests</span>
+                </button>
+                <button class="nav-btn" data-tab="faults">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                    <span>Fault Lab</span>
+                </button>
+                <button class="nav-btn" data-tab="validator">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                    <span>Configuration Audit</span>
+                </button>
+                <button class="nav-btn" data-tab="python-validator">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                    <span>Python Validator</span>
                 </button>
                 <button class="nav-btn" data-tab="configs">
-                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M4 4.5A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1-2.5-2.5v-15z"/></svg>
                     <span>IOS Configs</span>
+                </button>
+                <button class="nav-btn" data-tab="deliverables">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                    <span>Deliverables</span>
+                </button>
+                <button class="nav-btn" data-tab="walkthrough">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polygon points="10 8 16 12 10 16 10 8"/></svg>
+                    <span>Demo Walkthrough</span>
                 </button>
             </nav>
 
             <div class="sidebar-footer">
                 <div class="status-indicator">
                     <span class="dot pulse-green"></span>
-                    <span class="status-label">Validator Engine Active</span>
+                    <span class="status-label">Assurance Engine Active</span>
                 </div>
             </div>
         </aside>
@@ -61,20 +89,967 @@
             <!-- HEADER -->
             <header class="main-header">
                 <div class="header-title">
-                    <h2 id="page-title">Configuration Audit</h2>
-                    <p id="page-subtitle">Pasted show-command logs validation vs blueprint</p>
+                    <h2 id="page-title">Dashboard</h2>
+                    <p id="page-subtitle">Meridian Trust Bank branch network assurance status</p>
                 </div>
                 <div class="user-profile">
-                    <div class="avatar">IT</div>
+                    <div class="avatar">Cisco</div>
                     <div class="profile-info">
-                        <span class="name">Network Admin</span>
-                        <span class="role">Lead Engineer</span>
+                        <span class="name">Network Analyst</span>
+                        <span class="role">Cisco Virtual Intern 2026</span>
                     </div>
                 </div>
             </header>
 
-            <!-- TAB 1: VALIDATOR -->
-            <section class="tab-content active" id="tab-validator">
+            <!-- TAB 1: DASHBOARD -->
+            <section class="tab-content active" id="tab-dashboard">
+                <div class="grid-layout">
+                    <!-- Quick Stats -->
+                    <div class="card glass-card span-3">
+                        <div class="stat-content">
+                            <span class="stat-label">Assurance Score</span>
+                            <span class="stat-value">91%</span>
+                            <span class="stat-sub text-green">11 / 12 Rules Passing</span>
+                        </div>
+                    </div>
+                    <div class="card glass-card span-3">
+                        <div class="stat-content">
+                            <span class="stat-label">Physical Topology</span>
+                            <span class="stat-value">6 Devices</span>
+                            <span class="stat-sub">1 Rtr, 2 Sw, 1 AP, 1 Srv, 1 Cloud</span>
+                        </div>
+                    </div>
+                    <div class="card glass-card span-3">
+                        <div class="stat-content">
+                            <span class="stat-label">Workstation Segments</span>
+                            <span class="stat-value">8 Endpoints</span>
+                            <span class="stat-sub">4 VLAN subnets configured</span>
+                        </div>
+                    </div>
+                    <div class="card glass-card span-3">
+                        <div class="stat-content">
+                            <span class="stat-label">Fault Scenarios</span>
+                            <span class="stat-value">5 Seeded</span>
+                            <span class="stat-sub text-orange">Interactive Lab Active</span>
+                        </div>
+                    </div>
+
+                    <!-- Cisco Requirements Coverage Dashboard -->
+                    <div class="card glass-card span-8">
+                        <div class="card-header">
+                            <h3>Cisco virtual internship Requirement Coverage</h3>
+                        </div>
+                        <div class="card-body">
+                            <table class="grid-table">
+                                <thead>
+                                    <tr>
+                                        <th>Requirement Category</th>
+                                        <th>Target Description</th>
+                                        <th>Status</th>
+                                        <th>Validation Method</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>Topology Core</strong></td>
+                                        <td>1 router, 2 switches, 1 AP, 1 server, Internet, &ge; 8 endpoints</td>
+                                        <td><span class="badge badge-success">✅ Covered</span></td>
+                                        <td>Interactive Topology Viewer</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>IP & VLAN Setup</strong></td>
+                                        <td>VLANs 10, 20, 30, 99 on separate subnets</td>
+                                        <td><span class="badge badge-success">✅ Covered</span></td>
+                                        <td>Addressing plan, router-on-a-stick subinterfaces</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Network Services</strong></td>
+                                        <td>DHCP per VLAN, DNS reachability, NAT/PAT overload on WAN</td>
+                                        <td><span class="badge badge-success">✅ Covered</span></td>
+                                        <td>R1 configuration, DHCP scopes, DNS mapping</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Security Controls</strong></td>
+                                        <td>Guest blocked from VLAN 30/99; SSH restricted to VLAN 99 SVI</td>
+                                        <td><span class="badge badge-success">✅ Covered</span></td>
+                                        <td>VTY line access-class, extended GUEST_IN ACL rules</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Assurance Tool</strong></td>
+                                        <td>Python script validation of subnets, trunking, SSH, NAT, and ACLs</td>
+                                        <td><span class="badge badge-success">✅ Covered</span></td>
+                                        <td>Standalone CLI script `validator.py`</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Fault Scenarios</strong></td>
+                                        <td>At least 5 scenarios (wrong gateway, trunk, DHCP, ACL, NAT)</td>
+                                        <td><span class="badge badge-success">✅ Covered</span></td>
+                                        <td>Fault Lab & log auditing outputs</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Packet Tracer evidence</strong></td>
+                                        <td>Packet Tracer `.pkt` file and screenshots</td>
+                                        <td><span class="badge badge-warning">⚠️ Pending Upload</span></td>
+                                        <td>Student repository upload required</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Demo Video</strong></td>
+                                        <td>5–10 min presentation recording demonstrating connectivity</td>
+                                        <td><span class="badge badge-warning">⚠️ Pending Upload</span></td>
+                                        <td>Student demonstration required</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Workflow Overview -->
+                    <div class="card glass-card span-4">
+                        <div class="card-header">
+                            <h3>Project Storyline Workflow</h3>
+                        </div>
+                        <div class="card-body flex-col">
+                            <div class="timeline-visual">
+                                <div class="step-circle green">BUILD</div>
+                                <div class="step-arrow">&rarr;</div>
+                                <div class="step-circle red">BREAK</div>
+                                <div class="step-arrow">&rarr;</div>
+                                <div class="step-circle orange">DIAGNOSE</div>
+                                <div class="step-arrow">&rarr;</div>
+                                <div class="step-circle blue">FIX</div>
+                                <div class="step-arrow">&rarr;</div>
+                                <div class="step-circle green">VERIFY</div>
+                            </div>
+                            <p class="timeline-desc">
+                                <strong>SmartBranch 360</strong> enforces Cisco network reliability through a cyclical verification pattern:
+                            </p>
+                            <ul class="timeline-list">
+                                <li><strong>BUILD:</strong> Construct secure topology design in Cisco Packet Tracer.</li>
+                                <li><strong>BREAK:</strong> Seed intentional faults in the switch and router configuration.</li>
+                                <li><strong>DIAGNOSE:</strong> Use our custom Python Assurance tool to automatically locate faults in log dumps.</li>
+                                <li><strong>FIX:</strong> Apply the suggested Cisco CLI repair commands.</li>
+                                <li><strong>VERIFY:</strong> Rerun connectivity and audit checks to prove compliance.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 2: TOPOLOGY -->
+            <section class="tab-content" id="tab-topology">
+                <div class="grid-layout">
+                    <!-- Topology Canvas -->
+                    <div class="card glass-card span-8 topology-container">
+                        <div class="card-header">
+                            <h3>Cisco Port Mapping & Logical Topology Map</h3>
+                            <span class="instruction">Hover over nodes or link lines for port details</span>
+                        </div>
+                        <div class="card-body topo-body">
+                            <svg id="network-svg" viewBox="0 0 900 600" width="100%" height="100%">
+                                <defs>
+                                    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stop-color="#0052D4"/><stop offset="100%" stop-color="#4364F7"/>
+                                    </linearGradient>
+                                    <linearGradient id="purpleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stop-color="#B224EF"/><stop offset="100%" stop-color="#7579E7"/>
+                                    </linearGradient>
+                                    <linearGradient id="redGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stop-color="#FF416C"/><stop offset="100%" stop-color="#FF4B2B"/>
+                                    </linearGradient>
+                                    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stop-color="#F2C94C"/><stop offset="100%" stop-color="#F2994A"/>
+                                    </linearGradient>
+                                    <linearGradient id="cloudGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stop-color="#1F1C2C"/><stop offset="100%" stop-color="#928DAB"/>
+                                    </linearGradient>
+                                </defs>
+
+                                <!-- Links -->
+                                <!-- WAN Link -->
+                                <line x1="450" y1="40" x2="450" y2="110" class="cable-link wan-link" data-link="wan"/>
+                                <!-- R1 to SW1 Trunk -->
+                                <line x1="450" y1="110" x2="450" y2="210" class="cable-link trunk-link" data-link="trunk1"/>
+                                <!-- SW1 to SW2 Trunk -->
+                                <line x1="450" y1="210" x2="250" y2="290" class="cable-link trunk-link" data-link="trunk2"/>
+                                <!-- SW2 to AP Access -->
+                                <line x1="250" y1="290" x2="100" y2="290" class="cable-link access-link guest-vlan" data-link="sw2-ap"/>
+                                <!-- SW1 Access Links -->
+                                <line x1="450" y1="210" x2="650" y2="210" class="cable-link access-link server-vlan" data-link="sw1-srv"/>
+                                <line x1="450" y1="210" x2="630" y2="130" class="cable-link access-link mgt-vlan" data-link="sw1-adm1"/>
+                                <line x1="450" y1="210" x2="680" y2="90" class="cable-link access-link mgt-vlan" data-link="sw1-adm2"/>
+                                <line x1="450" y1="210" x2="600" y2="290" class="cable-link access-link emp-vlan" data-link="sw1-emp1"/>
+                                <line x1="450" y1="210" x2="520" y2="330" class="cable-link access-link emp-vlan" data-link="sw1-emp2"/>
+                                <!-- SW2 Access Links -->
+                                <line x1="250" y1="290" x2="120" y2="390" class="cable-link access-link emp-vlan" data-link="sw2-emp3"/>
+                                <line x1="250" y1="290" x2="220" y2="430" class="cable-link access-link emp-vlan" data-link="sw2-emp4"/>
+                                <!-- Wireless Wi-Fi Waves -->
+                                <line x1="100" y1="290" x2="60" y2="190" class="cable-link wireless-link" stroke-dasharray="3,3"/>
+                                <line x1="100" y1="290" x2="140" y2="190" class="cable-link wireless-link" stroke-dasharray="3,3"/>
+
+                                <!-- Nodes -->
+                                <!-- ISP Cloud -->
+                                <g class="node device-node" id="ISP-Cloud" data-device="ISP-Cloud">
+                                    <path d="M420,40 a15,15 0 0,1 25,-5 a12,12 0 0,1 20,-3 a15,15 0 0,1 15,15 a15,15 0 0,1 -10,15 H415 a12,12 0 0,1 -5,-12 a15,15 0 0,1 10,-10 z" fill="url(#cloudGrad)" stroke="#555" stroke-width="1.5"/>
+                                    <text x="450" y="44" fill="#fff" font-size="9" font-weight="bold" text-anchor="middle">ISP CLOUD</text>
+                                    <text x="450" y="15" fill="#718096" font-size="8" text-anchor="middle">203.0.113.1/30</text>
+                                </g>
+                                
+                                <!-- Router R1 -->
+                                <g class="node device-node" id="R1" data-device="R1">
+                                    <circle cx="450" cy="110" r="22" fill="url(#blueGrad)"/>
+                                    <path d="M440 105L450 97L460 105M440 115L450 123L460 115" stroke="#fff" stroke-width="2" stroke-linecap="round" fill="none"/>
+                                    <text x="450" y="113" fill="#fff" font-size="10" font-weight="bold" text-anchor="middle">R1</text>
+                                    <text x="450" y="145" fill="#a0aec0" font-size="9" text-anchor="middle">R1: Cisco 2911</text>
+                                    <text x="510" y="95" fill="#718096" font-size="8">WAN: 203.0.113.2</text>
+                                </g>
+
+                                <!-- SW1 Core -->
+                                <g class="node device-node" id="SW1" data-device="SW1">
+                                    <rect x="425" y="195" width="50" height="25" rx="3" fill="url(#purpleGrad)"/>
+                                    <path d="M430 207H470M435 200L430 207L435 214M465 200L470 207L465 214" stroke="#fff" stroke-width="1.2" fill="none"/>
+                                    <text x="450" y="235" fill="#fff" font-size="10" font-weight="bold" text-anchor="middle">SW1</text>
+                                    <text x="450" y="246" fill="#a0aec0" font-size="8" text-anchor="middle">Core Switch</text>
+                                </g>
+
+                                <!-- SW2 Access -->
+                                <g class="node device-node" id="SW2" data-device="SW2">
+                                    <rect x="225" y="277" width="50" height="25" rx="3" fill="url(#purpleGrad)"/>
+                                    <path d="M230 289H270M235 282L230 289L235 296M265 282L270 289L265 296" stroke="#fff" stroke-width="1.2" fill="none"/>
+                                    <text x="250" y="316" fill="#fff" font-size="10" font-weight="bold" text-anchor="middle">SW2</text>
+                                    <text x="250" y="327" fill="#a0aec0" font-size="8" text-anchor="middle">Access Switch</text>
+                                </g>
+
+                                <!-- Wireless AP -->
+                                <g class="node device-node" id="AP-01" data-device="AP-01">
+                                    <circle cx="100" cy="290" r="16" fill="url(#goldGrad)"/>
+                                    <path d="M92 290C92 286 108 286 108 290M95 290C95 288 105 288 105 290" stroke="#fff" stroke-width="1" fill="none"/>
+                                    <line x1="100" y1="282" x2="100" y2="290" stroke="#fff" stroke-width="1.5"/>
+                                    <text x="100" y="318" fill="#a0aec0" font-size="9" text-anchor="middle">AP-01</text>
+                                </g>
+
+                                <!-- Server SRV-DNS-WEB -->
+                                <g class="node device-node" id="SRV-DNS-WEB" data-device="SRV-DNS-WEB">
+                                    <rect x="650" y="190" width="34" height="38" rx="2" fill="url(#redGrad)"/>
+                                    <rect x="654" y="196" width="26" height="4" fill="#fff" opacity="0.8"/>
+                                    <rect x="654" y="204" width="26" height="4" fill="#fff" opacity="0.8"/>
+                                    <circle cx="658" cy="214" r="1.5" fill="#52fa7c"/>
+                                    <text x="667" y="242" fill="#a0aec0" font-size="9" text-anchor="middle">SRV-DNS-WEB</text>
+                                    <text x="667" y="252" fill="#e53e3e" font-size="8" text-anchor="middle">VLAN 30</text>
+                                </g>
+
+                                <!-- Endpoints -->
+                                <!-- Management PC 1 -->
+                                <g class="node device-node" id="Management-PC01" data-device="Management-PC01">
+                                    <rect x="615" y="100" width="24" height="16" rx="2" fill="#4a5568" stroke="#cbd5e0" stroke-width="1.2"/>
+                                    <text x="645" y="112" fill="#cbd5e0" font-size="9">Management-PC01</text>
+                                    <text x="645" y="122" fill="#9f7aea" font-size="8">VLAN 99 | 10.10.99.10</text>
+                                </g>
+
+                                <!-- Management PC 2 -->
+                                <g class="node device-node" id="Management-PC02" data-device="Management-PC02">
+                                    <rect x="665" y="60" width="24" height="16" rx="2" fill="#4a5568" stroke="#cbd5e0" stroke-width="1.2"/>
+                                    <text x="695" y="72" fill="#cbd5e0" font-size="9">Management-PC02</text>
+                                    <text x="695" y="82" fill="#9f7aea" font-size="8">VLAN 99 | 10.10.99.11</text>
+                                </g>
+
+                                <!-- Employee PC 1 -->
+                                <g class="node device-node" id="Employee-PC01" data-device="Employee-PC01">
+                                    <rect x="588" y="260" width="24" height="16" rx="2" fill="#2d3748" stroke="#48bb78" stroke-width="1.2"/>
+                                    <text x="620" y="272" fill="#cbd5e0" font-size="9">Employee-PC01</text>
+                                    <text x="620" y="282" fill="#48bb78" font-size="8">VLAN 10 | 10.10.10.10</text>
+                                </g>
+
+                                <!-- Employee PC 2 -->
+                                <g class="node device-node" id="Employee-PC02" data-device="Employee-PC02">
+                                    <rect x="508" y="300" width="24" height="16" rx="2" fill="#2d3748" stroke="#48bb78" stroke-width="1.2"/>
+                                    <text x="540" y="312" fill="#cbd5e0" font-size="9">Employee-PC02</text>
+                                    <text x="540" y="322" fill="#48bb78" font-size="8">VLAN 10 | 10.10.10.11</text>
+                                </g>
+
+                                <!-- Employee PC 3 -->
+                                <g class="node device-node" id="Employee-PC03" data-device="Employee-PC03">
+                                    <rect x="108" y="360" width="24" height="16" rx="2" fill="#2d3748" stroke="#48bb78" stroke-width="1.2"/>
+                                    <text x="140" y="372" fill="#cbd5e0" font-size="9">Employee-PC03</text>
+                                    <text x="140" y="382" fill="#48bb78" font-size="8">VLAN 10 | 10.10.10.12</text>
+                                </g>
+
+                                <!-- Employee PC 4 -->
+                                <g class="node device-node" id="Employee-PC04" data-device="Employee-PC04">
+                                    <rect x="208" y="400" width="24" height="16" rx="2" fill="#2d3748" stroke="#48bb78" stroke-width="1.2"/>
+                                    <text x="240" y="412" fill="#cbd5e0" font-size="9">Employee-PC04</text>
+                                    <text x="240" y="422" fill="#48bb78" font-size="8">VLAN 10 | 10.10.10.13</text>
+                                </g>
+
+                                <!-- Guest PC 1 -->
+                                <g class="node device-node" id="Guest-PC01" data-device="Guest-PC01">
+                                    <polygon points="45,170 75,170 70,177 50,177" fill="#4a5568" stroke="#cbd5e0" stroke-width="1"/>
+                                    <line x1="40" y1="178" x2="80" y2="178" stroke="#cbd5e0" stroke-width="1.2"/>
+                                    <text x="60" y="162" fill="#cbd5e0" font-size="9" text-anchor="middle">Guest-PC01</text>
+                                    <text x="60" y="152" fill="#ed8936" font-size="8" text-anchor="middle">VLAN 20 | 10.10.20.10</text>
+                                </g>
+
+                                <!-- Guest PC 2 -->
+                                <g class="node device-node" id="Guest-PC02" data-device="Guest-PC02">
+                                    <polygon points="125,170 155,170 150,177 130,177" fill="#4a5568" stroke="#cbd5e0" stroke-width="1"/>
+                                    <line x1="120" y1="178" x2="160" y2="178" stroke="#cbd5e0" stroke-width="1.2"/>
+                                    <text x="140" y="162" fill="#cbd5e0" font-size="9" text-anchor="middle">Guest-PC02</text>
+                                    <text x="140" y="152" fill="#ed8936" font-size="8" text-anchor="middle">VLAN 20 | 10.10.20.11</text>
+                                </g>
+
+                                <!-- Legend -->
+                                <g transform="translate(680,450)">
+                                    <rect x="0" y="0" width="200" height="130" rx="5" fill="#111" stroke="#333" stroke-width="1" opacity="0.9"/>
+                                    <text x="12" y="18" fill="#fff" font-size="10" font-weight="bold">Network Legend</text>
+                                    <line x1="12" y1="34" x2="32" y2="34" stroke="#48bb78" stroke-width="2"/>
+                                    <text x="40" y="37" fill="#cbd5e0" font-size="9">VLAN 10 Employee</text>
+                                    <line x1="12" y1="54" x2="32" y2="54" stroke="#ed8936" stroke-width="2"/>
+                                    <text x="40" y="57" fill="#cbd5e0" font-size="9">VLAN 20 Guest</text>
+                                    <line x1="12" y1="74" x2="32" y2="74" stroke="#e53e3e" stroke-width="2"/>
+                                    <text x="40" y="77" fill="#cbd5e0" font-size="9">VLAN 30 Server</text>
+                                    <line x1="12" y1="94" x2="32" y2="94" stroke="#9f7aea" stroke-width="2"/>
+                                    <text x="40" y="97" fill="#cbd5e0" font-size="9">VLAN 99 Management</text>
+                                    <line x1="12" y1="114" x2="32" y2="114" stroke="#718096" stroke-width="2" stroke-dasharray="3,3"/>
+                                    <text x="40" y="117" fill="#cbd5e0" font-size="9">Wireless Link</text>
+                                </g>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- Right Info Sidebar -->
+                    <div class="card glass-card span-4 info-sidebar">
+                        <div class="card-header">
+                            <h3 id="info-title">Network Info Profile</h3>
+                        </div>
+                        <div class="card-body">
+                            <div id="info-default-view" class="placeholder-view">
+                                <div class="placeholder-icon">
+                                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                                </div>
+                                <p>Hover over any device node, switch, router subinterface, or physical port link on the topology canvas to display addressing details and port connections.</p>
+                            </div>
+                            <div id="info-detail-view" class="info-details hidden">
+                                <div class="detail-header">
+                                    <span id="device-type-badge" class="badge">Router</span>
+                                    <h4 id="device-name-title">R1</h4>
+                                </div>
+                                <div class="detail-list">
+                                    <div class="detail-item">
+                                        <span class="label">Model:</span>
+                                        <span class="value" id="val-model">Cisco 2911</span>
+                                    </div>
+                                    <div class="detail-item">
+                                        <span class="label">Primary Role:</span>
+                                        <span class="value" id="val-role">Edge Gateway & Inter-VLAN Routing</span>
+                                    </div>
+                                    <div id="additional-details">
+                                        <!-- Custom info based on node -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 3: PLAN -->
+            <section class="tab-content" id="tab-plan">
+                <div class="grid-layout">
+                    <!-- VLAN Blueprint Table -->
+                    <div class="card glass-card span-12">
+                        <div class="card-header">
+                            <h3>VLAN Allocation Plan</h3>
+                        </div>
+                        <div class="card-body">
+                            <table class="grid-table">
+                                <thead>
+                                    <tr>
+                                        <th>VLAN ID</th>
+                                        <th>VLAN Name</th>
+                                        <th>Subnet Range</th>
+                                        <th>Gateway IP</th>
+                                        <th>DHCP Pool Scope</th>
+                                        <th>Default DNS Server</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><span class="vlan-badge employee-vlan-bg">10</span></td>
+                                        <td><strong>Employee</strong></td>
+                                        <td>10.10.10.0/24</td>
+                                        <td>10.10.10.1</td>
+                                        <td>10.10.10.10 - 10.10.10.250</td>
+                                        <td>10.10.30.10</td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="vlan-badge guest-vlan-bg">20</span></td>
+                                        <td><strong>Guest</strong></td>
+                                        <td>10.10.20.0/24</td>
+                                        <td>10.10.20.1</td>
+                                        <td>10.10.20.10 - 10.10.20.250</td>
+                                        <td>10.10.30.10</td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="vlan-badge server-vlan-bg">30</span></td>
+                                        <td><strong>Server</strong></td>
+                                        <td>10.10.30.0/24</td>
+                                        <td>10.10.30.1</td>
+                                        <td>None (Static Assign Only)</td>
+                                        <td>10.10.30.10</td>
+                                    </tr>
+                                    <tr>
+                                        <td><span class="vlan-badge mgt-vlan-bg">99</span></td>
+                                        <td><strong>Management</strong></td>
+                                        <td>10.10.99.0/24</td>
+                                        <td>10.10.99.1</td>
+                                        <td>10.10.99.10 - 10.10.99.50</td>
+                                        <td>10.10.30.10</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- IP Addressing Plan Table -->
+                    <div class="card glass-card span-12">
+                        <div class="card-header">
+                            <h3>Complete Device IP Addressing Plan (Lab Network)</h3>
+                        </div>
+                        <div class="card-body">
+                            <table class="grid-table">
+                                <thead>
+                                    <tr>
+                                        <th>Device</th>
+                                        <th>Interface</th>
+                                        <th>VLAN</th>
+                                        <th>IP Address</th>
+                                        <th>Subnet Mask</th>
+                                        <th>Gateway</th>
+                                        <th>Role / Notes</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>R1 (Router)</strong></td>
+                                        <td>Gi0/0</td>
+                                        <td>N/A (WAN)</td>
+                                        <td>203.0.113.2</td>
+                                        <td>255.255.255.252</td>
+                                        <td>203.0.113.1</td>
+                                        <td>ISP WAN Uplink Gateway Interface</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>R1 (Router)</strong></td>
+                                        <td>Gi0/1.10</td>
+                                        <td>10</td>
+                                        <td>10.10.10.1</td>
+                                        <td>255.255.255.0</td>
+                                        <td>N/A</td>
+                                        <td>Employee VLAN Default Gateway Subinterface</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>R1 (Router)</strong></td>
+                                        <td>Gi0/1.20</td>
+                                        <td>20</td>
+                                        <td>10.10.20.1</td>
+                                        <td>255.255.255.0</td>
+                                        <td>N/A</td>
+                                        <td>Guest VLAN Default Gateway Subinterface</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>R1 (Router)</strong></td>
+                                        <td>Gi0/1.30</td>
+                                        <td>30</td>
+                                        <td>10.10.30.1</td>
+                                        <td>255.255.255.0</td>
+                                        <td>N/A</td>
+                                        <td>Server VLAN Default Gateway Subinterface</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>R1 (Router)</strong></td>
+                                        <td>Gi0/1.99</td>
+                                        <td>99</td>
+                                        <td>10.10.99.1</td>
+                                        <td>255.255.255.0</td>
+                                        <td>N/A</td>
+                                        <td>Management VLAN Default Gateway Subinterface</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>SW1 (Switch)</strong></td>
+                                        <td>Vlan99</td>
+                                        <td>99</td>
+                                        <td>10.10.99.2</td>
+                                        <td>255.255.255.0</td>
+                                        <td>10.10.99.1</td>
+                                        <td>Core Switch Management SVI Ssh Access</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>SW2 (Switch)</strong></td>
+                                        <td>Vlan99</td>
+                                        <td>99</td>
+                                        <td>10.10.99.3</td>
+                                        <td>255.255.255.0</td>
+                                        <td>10.10.99.1</td>
+                                        <td>Access Switch Management SVI Ssh Access</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>SRV-DNS-WEB</strong></td>
+                                        <td>Fa0</td>
+                                        <td>30</td>
+                                        <td>10.10.30.10</td>
+                                        <td>255.255.255.0</td>
+                                        <td>10.10.30.1</td>
+                                        <td>Static Server (Core Banking, DNS Services)</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>PC-Admin</strong></td>
+                                        <td>Fa0</td>
+                                        <td>99</td>
+                                        <td>DHCP (Leased)</td>
+                                        <td>255.255.255.0</td>
+                                        <td>10.10.99.1</td>
+                                        <td>Network Administrator Workstation</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Employee Client Range</strong></td>
+                                        <td>NIC</td>
+                                        <td>10</td>
+                                        <td>10.10.10.10 - .250</td>
+                                        <td>255.255.255.0</td>
+                                        <td>10.10.10.1</td>
+                                        <td>Wired Employee PC Range</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Guest Client Range</strong></td>
+                                        <td>WiFi</td>
+                                        <td>20</td>
+                                        <td>10.10.20.10 - .250</td>
+                                        <td>255.255.255.0</td>
+                                        <td>10.10.20.1</td>
+                                        <td>Wireless Lobby Guests (Wi-Fi)</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <!-- Services Block -->
+                    <div class="card glass-card span-6">
+                        <div class="card-header">
+                            <h3>DHCP & DNS Network Infrastructure Services</h3>
+                        </div>
+                        <div class="card-body">
+                            <ul class="blueprint-list">
+                                <li>
+                                    <strong>DHCP Pools Scope (Router-hosted):</strong>
+                                    <ul>
+                                        <li><code>EMPLOYEE_POOL</code>: network 10.10.10.0/24, gateway 10.10.10.1, DNS 10.10.30.10, leases 10.10.10.10 - .250 (IPs .1-.9 excluded).</li>
+                                        <li><code>GUEST_POOL</code>: network 10.10.20.0/24, gateway 10.10.20.1, DNS 10.10.30.10, leases 10.10.20.10 - .250 (IPs .1-.9 excluded).</li>
+                                        <li><code>MANAGEMENT_POOL</code>: network 10.10.99.0/24, gateway 10.10.99.1, DNS 10.10.30.10, leases 10.10.99.10 - .50 (IPs .1-.9, .51-.254 excluded).</li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <strong>Internal DNS Configuration (Server SRV-DNS-WEB - 10.10.30.10):</strong>
+                                    <ul>
+                                        <li>A-record mapping: <code>dns.smartbranch.local</code> &rarr; <code>10.10.30.10</code></li>
+                                        <li>A-record mapping: <code>server.smartbranch.local</code> &rarr; <code>10.10.30.10</code></li>
+                                        <li><strong>Compliance Note:</strong> Allow UDP port 53 traffic from both Employee and Guest VLANs to DNS server 10.10.30.10. Although Guests are blocked from general server subnet access, they must be allowed to make DNS queries for domain name resolution.</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- NAT Block -->
+                    <div class="card glass-card span-6">
+                        <div class="card-header">
+                            <h3>WAN Uplink & NAT/PAT Configurations</h3>
+                        </div>
+                        <div class="card-body">
+                            <p class="blueprint-intro">
+                                Inside private subnets (VLANs 10, 20, 99) share a single public IP address on Router R1's GigabitEthernet0/0 interface to access the internet using NAT overload (Port Address Translation).
+                            </p>
+                            <ul class="blueprint-list">
+                                <li><strong>Outside NAT Interface:</strong> GigabitEthernet0/0 (IP: 203.0.113.2/30, Lab WAN IP)</li>
+                                <li><strong>Inside NAT Interfaces:</strong> R1 sub-interfaces Gi0/1.10, Gi0/1.20, Gi0/1.30, Gi0/1.99</li>
+                                <li><strong>NAT ACL Mapping:</strong> Standard ACL <code>NAT_ACL</code> permits subnets 10.10.10.0/24, 10.10.20.0/24, and 10.10.99.0/24.</li>
+                                <li><strong>Cisco Overload Instruction:</strong> <code>ip nat inside source list NAT_ACL interface GigabitEthernet0/0 overload</code> translates port addresses to allow concurrent internet connections.</li>
+                                <li><strong>Default Routing:</strong> Router R1 points to ISP Gateway 203.0.113.1 via: <code>ip route 0.0.0.0 0.0.0.0 203.0.113.1</code>.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 4: SECURITY -->
+            <section class="tab-content" id="tab-security">
+                <div class="card glass-card">
+                    <div class="card-header">
+                        <h3>Compliance Security Matrix Rules (SEC-01 - SEC-11)</h3>
+                    </div>
+                    <div class="card-body">
+                        <table class="grid-table">
+                            <thead>
+                                <tr>
+                                    <th>Policy ID</th>
+                                    <th>Source Subnet</th>
+                                    <th>Destination</th>
+                                    <th>Protocol</th>
+                                    <th>Port</th>
+                                    <th>Action</th>
+                                    <th>Compliance Justification / Security Objective</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><span class="policy-badge red-badge">SEC-01</span></td>
+                                    <td>VLAN 20 Guest</td>
+                                    <td>VLAN 30 Server</td>
+                                    <td>IP</td>
+                                    <td>Any</td>
+                                    <td><strong>DENY</strong></td>
+                                    <td>Blocks guest endpoints in lobby from accessing banking servers</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="policy-badge red-badge">SEC-02</span></td>
+                                    <td>VLAN 20 Guest</td>
+                                    <td>VLAN 99 Management</td>
+                                    <td>IP</td>
+                                    <td>Any</td>
+                                    <td><strong>DENY</strong></td>
+                                    <td>Blocks guests from accessing switch/router SVI management IP addresses</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="policy-badge green-badge">SEC-03</span></td>
+                                    <td>VLAN 20 Guest</td>
+                                    <td>SRV-DNS-WEB (10.10.30.10)</td>
+                                    <td>UDP</td>
+                                    <td>53 (DNS)</td>
+                                    <td><strong>PERMIT</strong></td>
+                                    <td>Enables guest Wi-Fi clients to resolve external DNS domains via local server</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="policy-badge green-badge">SEC-04</span></td>
+                                    <td>VLAN 10 Employee</td>
+                                    <td>VLAN 30 Server</td>
+                                    <td>IP</td>
+                                    <td>Any</td>
+                                    <td><strong>PERMIT</strong></td>
+                                    <td>Allows tellers and employees to access database applications</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="policy-badge green-badge">SEC-05</span></td>
+                                    <td>VLAN 10 Employee</td>
+                                    <td>Internet (WAN)</td>
+                                    <td>IP</td>
+                                    <td>Any</td>
+                                    <td><strong>PERMIT</strong></td>
+                                    <td>Enables employee access to internet through NAT overloading</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="policy-badge green-badge">SEC-06</span></td>
+                                    <td>VLAN 20 Guest</td>
+                                    <td>Internet (WAN)</td>
+                                    <td>IP</td>
+                                    <td>Any</td>
+                                    <td><strong>PERMIT</strong></td>
+                                    <td>Enables guest client internet access (NAT overload)</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="policy-badge purple-badge">SEC-07</span></td>
+                                    <td>VLAN 99 Management</td>
+                                    <td>R1, SW1, SW2</td>
+                                    <td>TCP</td>
+                                    <td>22 (SSH)</td>
+                                    <td><strong>PERMIT</strong></td>
+                                    <td>Permits secure SSH administrative access from dedicated IT workstations</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="policy-badge red-badge">SEC-08</span></td>
+                                    <td>VLAN 10 Employee</td>
+                                    <td>R1, SW1, SW2</td>
+                                    <td>TCP</td>
+                                    <td>22 (SSH)</td>
+                                    <td><strong>DENY</strong></td>
+                                    <td>Blocks employees on VLAN 10 from logging into device CLI configurations</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="policy-badge red-badge">SEC-09</span></td>
+                                    <td>VLAN 20 Guest</td>
+                                    <td>R1, SW1, SW2</td>
+                                    <td>TCP</td>
+                                    <td>22 (SSH)</td>
+                                    <td><strong>DENY</strong></td>
+                                    <td>Blocks lobby guest Wi-Fi devices from accessing CLI lines</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="policy-badge red-badge">SEC-10</span></td>
+                                    <td>VLAN 20 Guest</td>
+                                    <td>VLAN 30 (except DNS)</td>
+                                    <td>TCP/UDP</td>
+                                    <td>Non-53</td>
+                                    <td><strong>DENY</strong></td>
+                                    <td>Comprehensive guest lock on server data, allowing only DNS (UDP 53)</td>
+                                </tr>
+                                <tr>
+                                    <td><span class="policy-badge green-badge">SEC-11</span></td>
+                                    <td>VLAN 99 Management</td>
+                                    <td>Internet (WAN)</td>
+                                    <td>IP</td>
+                                    <td>Any</td>
+                                    <td><strong>PERMIT</strong></td>
+                                    <td>Allows administrator workstations to reach internet for updates</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 5: TESTS -->
+            <section class="tab-content" id="tab-tests">
+                <div class="card glass-card margin-bottom-sm">
+                    <div class="card-header">
+                        <h3>Simulated Network Connectivity Validation Suite</h3>
+                        <span class="badge badge-warning">Reference/Simulated Validation</span>
+                    </div>
+                    <div class="card-body">
+                        <p class="blueprint-intro">
+                            The following connectivity cards verify the logical routing path and security enforcement checks of the SmartBranch 360 network layout in a simulated environment.
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="grid-layout" id="tests-grid">
+                    <!-- TEST-01 -->
+                    <div class="card glass-card span-4 test-card">
+                        <div class="test-header">
+                            <span class="test-id">TEST-01</span>
+                            <span class="badge badge-success">PASS</span>
+                        </div>
+                        <div class="test-body">
+                            <h4>Employee DHCP Lease</h4>
+                            <p><strong>Source:</strong> Employee PC01</p>
+                            <p><strong>Destination:</strong> Router R1 DHCP Service</p>
+                            <p><strong>Protocol:</strong> DHCP (UDP 67/68)</p>
+                            <p><strong>Expected:</strong> Receives IP address in range 10.10.10.10-250</p>
+                            <p class="test-result"><strong>Status:</strong> Assigned IP 10.10.10.10, Gateway 10.10.10.1, DNS 10.10.30.10</p>
+                        </div>
+                    </div>
+                    <!-- TEST-02 -->
+                    <div class="card glass-card span-4 test-card">
+                        <div class="test-header">
+                            <span class="test-id">TEST-02</span>
+                            <span class="badge badge-success">PASS</span>
+                        </div>
+                        <div class="test-body">
+                            <h4>Employee to Server IP Access</h4>
+                            <p><strong>Source:</strong> Employee PC01 (10.10.10.10)</p>
+                            <p><strong>Destination:</strong> Server SRV-DNS-WEB (10.10.30.10)</p>
+                            <p><strong>Protocol:</strong> TCP Port 80 (HTTP)</p>
+                            <p><strong>Expected:</strong> Connection Established (Permit)</p>
+                            <p class="test-result"><strong>Status:</strong> Successful HTTP GET response returned from server database.</p>
+                        </div>
+                    </div>
+                    <!-- TEST-03 -->
+                    <div class="card glass-card span-4 test-card">
+                        <div class="test-header">
+                            <span class="test-id">TEST-03</span>
+                            <span class="badge badge-success">PASS</span>
+                        </div>
+                        <div class="test-body">
+                            <h4>Employee to Internet NAT</h4>
+                            <p><strong>Source:</strong> Employee PC01 (10.10.10.10)</p>
+                            <p><strong>Destination:</strong> Public IP (e.g. 8.8.8.8)</p>
+                            <p><strong>Protocol:</strong> ICMP Echo (Ping)</p>
+                            <p><strong>Expected:</strong> Echo Reply (Translated to 203.0.113.2)</p>
+                            <p class="test-result"><strong>Status:</strong> NAT translates 10.10.10.10 to 203.0.113.2. Pings succeed.</p>
+                        </div>
+                    </div>
+                    <!-- TEST-04 -->
+                    <div class="card glass-card span-4 test-card">
+                        <div class="test-header">
+                            <span class="test-id">TEST-04</span>
+                            <span class="badge badge-success">PASS</span>
+                        </div>
+                        <div class="test-body">
+                            <h4>Guest DHCP Lease</h4>
+                            <p><strong>Source:</strong> Guest PC01</p>
+                            <p><strong>Destination:</strong> Router R1 DHCP Service</p>
+                            <p><strong>Protocol:</strong> DHCP (UDP 67/68)</p>
+                            <p><strong>Expected:</strong> Receives IP address in range 10.10.20.10-250</p>
+                            <p class="test-result"><strong>Status:</strong> Assigned IP 10.10.20.10, Gateway 10.10.20.1, DNS 10.10.30.10</p>
+                        </div>
+                    </div>
+                    <!-- TEST-05 -->
+                    <div class="card glass-card span-4 test-card">
+                        <div class="test-header">
+                            <span class="test-id">TEST-05</span>
+                            <span class="badge badge-success">PASS</span>
+                        </div>
+                        <div class="test-body">
+                            <h4>Guest to Internet NAT</h4>
+                            <p><strong>Source:</strong> Guest PC01 (10.10.20.10)</p>
+                            <p><strong>Destination:</strong> Public IP (e.g. 8.8.8.8)</p>
+                            <p><strong>Protocol:</strong> ICMP Echo (Ping)</p>
+                            <p><strong>Expected:</strong> Echo Reply (Translated to 203.0.113.2)</p>
+                            <p class="test-result"><strong>Status:</strong> NAT translates 10.10.20.10 to 203.0.113.2. Pings succeed.</p>
+                        </div>
+                    </div>
+                    <!-- TEST-06 -->
+                    <div class="card glass-card span-4 test-card">
+                        <div class="test-header">
+                            <span class="test-id">TEST-06</span>
+                            <span class="badge badge-neutral">BLOCKED</span>
+                        </div>
+                        <div class="test-body">
+                            <h4>Guest to Server Block</h4>
+                            <p><strong>Source:</strong> Guest PC01 (10.10.20.10)</p>
+                            <p><strong>Destination:</strong> Server SRV-DNS-WEB (10.10.30.10)</p>
+                            <p><strong>Protocol:</strong> TCP Port 80 (HTTP)</p>
+                            <p><strong>Expected:</strong> Request Blocked (Deny by GUEST_IN ACL)</p>
+                            <p class="test-result"><strong>Status:</strong> Blocked. Router R1 subinterface Gi0/1.20 drops packets.</p>
+                        </div>
+                    </div>
+                    <!-- TEST-07 -->
+                    <div class="card glass-card span-4 test-card">
+                        <div class="test-header">
+                            <span class="test-id">TEST-07</span>
+                            <span class="badge badge-neutral">BLOCKED</span>
+                        </div>
+                        <div class="test-body">
+                            <h4>Guest to Management Block</h4>
+                            <p><strong>Source:</strong> Guest PC01 (10.10.20.10)</p>
+                            <p><strong>Destination:</strong> SW1 Management SVI (10.10.99.2)</p>
+                            <p><strong>Protocol:</strong> IP Protocol Traffic</p>
+                            <p><strong>Expected:</strong> Packets Dropped (Deny by GUEST_IN ACL)</p>
+                            <p class="test-result"><strong>Status:</strong> Blocked. Guest is isolated from Management VLAN 99 network.</p>
+                        </div>
+                    </div>
+                    <!-- TEST-08 -->
+                    <div class="card glass-card span-4 test-card">
+                        <div class="test-header">
+                            <span class="test-id">TEST-08</span>
+                            <span class="badge badge-success">PASS</span>
+                        </div>
+                        <div class="test-body">
+                            <h4>Management Host SSH to Router R1</h4>
+                            <p><strong>Source:</strong> Management PC01 (10.10.99.10)</p>
+                            <p><strong>Destination:</strong> Router R1 SVI (10.10.99.1)</p>
+                            <p><strong>Protocol:</strong> TCP Port 22 (SSH)</p>
+                            <p><strong>Expected:</strong> Password Prompt (Access Allowed)</p>
+                            <p class="test-result"><strong>Status:</strong> Session permitted. SSH terminal connection open.</p>
+                        </div>
+                    </div>
+                    <!-- TEST-09 -->
+                    <div class="card glass-card span-4 test-card">
+                        <div class="test-header">
+                            <span class="test-id">TEST-09</span>
+                            <span class="badge badge-neutral">BLOCKED</span>
+                        </div>
+                        <div class="test-body">
+                            <h4>Employee Host SSH to Router R1</h4>
+                            <p><strong>Source:</strong> Employee PC01 (10.10.10.10)</p>
+                            <p><strong>Destination:</strong> Router R1 SVI (10.10.99.1)</p>
+                            <p><strong>Protocol:</strong> TCP Port 22 (SSH)</p>
+                            <p><strong>Expected:</strong> Connection Closed by Foreign Host (Blocked)</p>
+                            <p class="test-result"><strong>Status:</strong> Denied by R1 line vty access-class 99 restriction.</p>
+                        </div>
+                    </div>
+                    <!-- TEST-10 -->
+                    <div class="card glass-card span-4 test-card">
+                        <div class="test-header">
+                            <span class="test-id">TEST-10</span>
+                            <span class="badge badge-neutral">BLOCKED</span>
+                        </div>
+                        <div class="test-body">
+                            <h4>Guest Host SSH to Switch SW1</h4>
+                            <p><strong>Source:</strong> Guest PC01 (10.10.20.10)</p>
+                            <p><strong>Destination:</strong> Switch SW1 SVI (10.10.99.2)</p>
+                            <p><strong>Protocol:</strong> TCP Port 22 (SSH)</p>
+                            <p><strong>Expected:</strong> Connection Refused/Timeout (Blocked)</p>
+                            <p class="test-result"><strong>Status:</strong> Denied by GUEST_IN ACL and SW1 line vty access-class.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 6: FAULTS -->
+            <section class="tab-content" id="tab-faults">
+                <div class="grid-layout">
+                    <!-- Left Sidebar - Fault Select -->
+                    <div class="card glass-card span-4">
+                        <div class="card-header">
+                            <h3>Seeded Fault Inventory</h3>
+                        </div>
+                        <div class="card-body flex-col gap-sm">
+                            <button class="fault-item-btn active" data-fault-idx="1">
+                                <span class="fault-badge">FAULT 01</span>
+                                <span>Wrong Default Gateway</span>
+                            </button>
+                            <button class="fault-item-btn" data-fault-idx="2">
+                                <span class="fault-badge">FAULT 02</span>
+                                <span>Missing VLAN on Trunk</span>
+                            </button>
+                            <button class="fault-item-btn" data-fault-idx="3">
+                                <span class="fault-badge">FAULT 03</span>
+                                <span>DHCP Pool Subnet Mismatch</span>
+                            </button>
+                            <button class="fault-item-btn" data-fault-idx="4">
+                                <span class="fault-badge">FAULT 04</span>
+                                <span>ACL Blocking DNS Traffic</span>
+                            </button>
+                            <button class="fault-item-btn" data-fault-idx="5">
+                                <span class="fault-badge">FAULT 05</span>
+                                <span>NAT Overload Rule Failure</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Right - Fault Lab Console -->
+                    <div class="card glass-card span-8">
+                        <div class="card-header">
+                            <h3 id="fault-lab-title">Fault Details & Controls</h3>
+                            <span id="network-health-badge" class="badge badge-success">HEALTHY</span>
+                        </div>
+                        <div class="card-body scroll-panel flex-col">
+                            <div class="fault-details-panel">
+                                <div class="fault-meta-item">
+                                    <strong>Symptom Observed:</strong>
+                                    <p id="fault-symptom">Select a fault scenario to initialize the interactive simulation console.</p>
+                                </div>
+                                <div class="fault-meta-item">
+                                    <strong>Root Cause:</strong>
+                                    <p id="fault-cause">-</p>
+                                </div>
+                                <div class="fault-meta-item">
+                                    <strong>Technical Evidence:</strong>
+                                    <pre id="fault-evidence" class="log-pre">-</pre>
+                                </div>
+                                <div class="fault-meta-item">
+                                    <strong>Suggested Cisco CLI Fix:</strong>
+                                    <pre id="fault-fix" class="code-pre">-</pre>
+                                </div>
+                            </div>
+                            
+                            <div class="fault-controls">
+                                <button id="btn-inject-fault" class="primary-btn danger-btn-color">Inject Fault</button>
+                                <button id="btn-run-diagnosis" class="primary-btn warning-btn-color" disabled>Run Diagnosis</button>
+                                <button id="btn-show-evidence" class="secondary-btn" disabled>Show Evidence</button>
+                                <button id="btn-verify-fix" class="primary-btn success-btn-color" disabled>Apply & Verify Fix</button>
+                            </div>
+                            
+                            <!-- Diagnostic output logger -->
+                            <div class="diagnostic-console hidden" id="diag-console">
+                                <span class="console-header">Diagnostic Output:</span>
+                                <pre id="diag-log">Running configuration checks...</pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 7: VALIDATOR -->
+            <section class="tab-content" id="tab-validator">
                 <div class="grid-layout">
                     <!-- Left: Paste console logs -->
                     <div class="card glass-card span-8">
@@ -123,326 +1098,96 @@
                 </div>
             </section>
 
-            <!-- TAB 2: TOPOLOGY -->
-            <section class="tab-content" id="tab-topology">
+            <!-- TAB 8: PYTHON VALIDATOR -->
+            <section class="tab-content" id="tab-python-validator">
                 <div class="grid-layout">
-                    <!-- Left: Interactive Topology SVG -->
-                    <div class="card glass-card span-8 topology-container">
+                    <!-- Python tool info -->
+                    <div class="card glass-card span-6">
                         <div class="card-header">
-                            <h3>Physical & Logical Port Connections</h3>
-                            <span class="instruction">Hover over devices or links to display metadata specs</span>
+                            <h3>Python CLI Configuration Assurance Utility</h3>
                         </div>
-                        <div class="card-body topo-body">
-                            <svg id="network-svg" viewBox="0 0 800 500" width="100%" height="100%">
-                                <!-- Define defs for gradients and markers -->
-                                <defs>
-                                    <linearGradient id="blueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                                        <stop offset="0%" stop-color="#0052D4"/>
-                                        <stop offset="100%" stop-color="#4364F7"/>
-                                    </linearGradient>
-                                    <linearGradient id="purpleGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                                        <stop offset="0%" stop-color="#B224EF"/>
-                                        <stop offset="100%" stop-color="#7579E7"/>
-                                    </linearGradient>
-                                    <linearGradient id="redGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                                        <stop offset="0%" stop-color="#FF416C"/>
-                                        <stop offset="100%" stop-color="#FF4B2B"/>
-                                    </linearGradient>
-                                    <linearGradient id="greenGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                                        <stop offset="0%" stop-color="#11998e"/>
-                                        <stop offset="100%" stop-color="#38ef7d"/>
-                                    </linearGradient>
-                                    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                                        <stop offset="0%" stop-color="#f857a6"/>
-                                        <stop offset="100%" stop-color="#ff5858"/>
-                                    </linearGradient>
-                                </defs>
+                        <div class="card-body scroll-panel">
+                            <p class="blueprint-intro">
+                                We designed and programmed an automated Python script <code>validator.py</code> that runs locally in your terminal. It reads parsed console logs and validates them against the design constraints defined in <code>smartbranch360.yaml</code>.
+                            </p>
+                            
+                            <h4 class="section-sub">Features:</h4>
+                            <ul class="blueprint-list">
+                                <li>Parses configuration logs dynamically.</li>
+                                <li>Audits SVI subnet settings, VLAN entries, and router subinterfaces.</li>
+                                <li>Scans allowed trunk VLAN IDs and flags missing trunk configurations.</li>
+                                <li>Evaluates ACL permit/deny statements and rules execution order.</li>
+                                <li>Checks for SSH administration line access-class limitations.</li>
+                                <li>Validates WAN subinterfaces and NAT overload (PAT) status.</li>
+                            </ul>
 
-                                <!-- Links / Connectors (Paths) -->
-                                <!-- WAN Link -->
-                                <line x1="400" y1="40" x2="400" y2="100" class="cable-link wan-link" data-link="wan"/>
-                                <!-- Router R1 to Switch SW1 -->
-                                <line x1="400" y1="100" x2="400" y2="200" class="cable-link trunk-link" data-link="trunk1"/>
-                                <!-- Switch SW1 to Switch SW2 -->
-                                <line x1="400" y1="200" x2="200" y2="280" class="cable-link trunk-link" data-link="trunk2"/>
+                            <h4 class="section-sub">How to Execute:</h4>
+                            <pre class="code-pre"># Run against healthy configuration
+python python-validator/validator.py --config python-validator/sample_config.txt
 
-                                <!-- SW1 Access Links -->
-                                <line x1="400" y1="200" x2="520" y2="200" class="cable-link access-link server-vlan" data-link="sw1-srv"/>
-                                <line x1="400" y1="200" x2="600" y2="130" class="cable-link access-link mgt-vlan" data-link="sw1-admin"/>
-                                <line x1="400" y1="200" x2="560" y2="280" class="cable-link access-link emp-vlan" data-link="sw1-t1"/>
-                                <line x1="400" y1="200" x2="480" y2="300" class="cable-link access-link emp-vlan" data-link="sw1-t2"/>
+# Run against a fault scenario
+python python-validator/validator.py --config python-validator/sample_faults/fault_wrong_gateway.txt</pre>
 
-                                <!-- SW2 Access Links -->
-                                <line x1="200" y1="280" x2="80" y2="220" class="cable-link access-link guest-vlan" data-link="sw2-ap"/>
-                                <line x1="200" y1="280" x2="80" y2="340" class="cable-link access-link emp-vlan" data-link="sw2-emp1"/>
-                                <line x1="200" y1="280" x2="160" y2="380" class="cable-link access-link emp-vlan" data-link="sw2-emp2"/>
-                                <line x1="200" y1="280" x2="260" y2="380" class="cable-link access-link emp-vlan" data-link="sw2-mgr"/>
-
-                                <!-- Wireless Client Links -->
-                                <line x1="80" y1="220" x2="50" y2="140" class="cable-link wireless-link" stroke-dasharray="4,4"/>
-                                <line x1="80" y1="220" x2="140" y2="140" class="cable-link wireless-link" stroke-dasharray="4,4"/>
-
-                                <!-- Device Nodes -->
-                                <!-- ISP Cloud -->
-                                <g class="node device-node" id="ISP" data-device="ISP">
-                                    <circle cx="400" cy="40" r="22" fill="#333" stroke="#555" stroke-width="2"/>
-                                    <text x="400" y="44" fill="#fff" font-size="10" font-weight="bold" text-anchor="middle">WAN</text>
-                                </g>
-
-                                <!-- Router R1 -->
-                                <g class="node device-node" id="R1" data-device="R1">
-                                    <circle cx="400" cy="100" r="25" fill="url(#blueGrad)"/>
-                                    <path d="M388 95L400 87L412 95M388 105L400 113L412 105" stroke="#fff" stroke-width="2" stroke-linecap="round" fill="none"/>
-                                    <text x="400" y="103" fill="#fff" font-size="11" font-weight="bold" text-anchor="middle">R1</text>
-                                    <text x="400" y="140" fill="#a0aec0" font-size="10" text-anchor="middle">Cisco 2911</text>
-                                </g>
-
-                                <!-- Switch SW1 -->
-                                <g class="node device-node" id="SW1" data-device="SW1">
-                                    <rect x="375" y="175" width="50" height="30" rx="3" fill="url(#purpleGrad)"/>
-                                    <path d="M380 190H420M385 183L380 190L385 197M415 183L420 190L415 197" stroke="#fff" stroke-width="1.5" fill="none"/>
-                                    <text x="400" y="222" fill="#fff" font-size="11" font-weight="bold" text-anchor="middle">SW1</text>
-                                    <text x="400" y="235" fill="#a0aec0" font-size="9" text-anchor="middle">Core Switch</text>
-                                </g>
-
-                                <!-- Switch SW2 -->
-                                <g class="node device-node" id="SW2" data-device="SW2">
-                                    <rect x="175" y="265" width="50" height="30" rx="3" fill="url(#purpleGrad)"/>
-                                    <path d="M180 280H220M185 273L180 280L185 287M215 273L220 280L215 287" stroke="#fff" stroke-width="1.5" fill="none"/>
-                                    <text x="200" y="312" fill="#fff" font-size="11" font-weight="bold" text-anchor="middle">SW2</text>
-                                    <text x="200" y="325" fill="#a0aec0" font-size="9" text-anchor="middle">Access Switch</text>
-                                </g>
-
-                                <!-- Server SRV1 -->
-                                <g class="node device-node" id="SRV1" data-device="SRV1">
-                                    <rect x="520" y="180" width="36" height="40" rx="3" fill="url(#redGrad)"/>
-                                    <rect x="525" y="188" width="26" height="5" rx="1" fill="#fff" opacity="0.8"/>
-                                    <rect x="525" y="198" width="26" height="5" rx="1" fill="#fff" opacity="0.8"/>
-                                    <circle cx="530" cy="210" r="2" fill="#52fa7c"/>
-                                    <text x="538" y="235" fill="#a0aec0" font-size="10" text-anchor="middle">SRV1</text>
-                                </g>
-
-                                <!-- Wireless AP WAP1 -->
-                                <g class="node device-node" id="WAP1" data-device="WAP1">
-                                    <circle cx="80" cy="220" r="18" fill="url(#goldGrad)"/>
-                                    <!-- AP antenna symbols -->
-                                    <path d="M72 220C72 215 88 215 88 220" stroke="#fff" stroke-width="1.5" fill="none"/>
-                                    <path d="M75 220C75 217 85 217 85 220" stroke="#fff" stroke-width="1.5" fill="none"/>
-                                    <line x1="80" y1="210" x2="80" y2="220" stroke="#fff" stroke-width="2"/>
-                                    <text x="80" y="252" fill="#a0aec0" font-size="10" text-anchor="middle">WAP1</text>
-                                </g>
-
-                                <!-- Admin PC -->
-                                <g class="node device-node" id="PC-Admin" data-device="PC-Admin">
-                                    <rect x="580" y="100" width="30" height="20" rx="2" fill="#4a5568" stroke="#cbd5e0" stroke-width="1.5"/>
-                                    <rect x="590" y="120" width="10" height="6" fill="#718096"/>
-                                    <line x1="585" y1="126" x2="605" y2="126" stroke="#cbd5e0" stroke-width="1.5"/>
-                                    <text x="635" y="115" fill="#cbd5e0" font-size="10">PC-Admin</text>
-                                </g>
-
-                                <!-- Teller 1 PC -->
-                                <g class="node device-node" id="PC-Teller1" data-device="PC-Teller1">
-                                    <rect x="550" y="270" width="24" height="16" rx="2" fill="#2d3748" stroke="#718096" stroke-width="1.5"/>
-                                    <line x1="552" y1="290" x2="572" y2="290" stroke="#718096" stroke-width="1.5"/>
-                                    <text x="582" y="282" fill="#a0aec0" font-size="9">PC-Teller1</text>
-                                </g>
-
-                                <!-- Teller 2 PC -->
-                                <g class="node device-node" id="PC-Teller2" data-device="PC-Teller2">
-                                    <rect x="470" y="295" width="24" height="16" rx="2" fill="#2d3748" stroke="#718096" stroke-width="1.5"/>
-                                    <line x1="472" y1="315" x2="492" y2="315" stroke="#718096" stroke-width="1.5"/>
-                                    <text x="460" y="325" fill="#a0aec0" font-size="9">PC-Teller2</text>
-                                </g>
-
-                                <!-- Employee 1 PC -->
-                                <g class="node device-node" id="PC-Emp1" data-device="PC-Emp1">
-                                    <rect x="68" y="335" width="24" height="16" rx="2" fill="#2d3748" stroke="#718096" stroke-width="1.5"/>
-                                    <line x1="70" y1="355" x2="90" y2="355" stroke="#718096" stroke-width="1.5"/>
-                                    <text x="80" y="365" fill="#a0aec0" font-size="9" text-anchor="middle">PC-Emp1</text>
-                                </g>
-
-                                <!-- Employee 2 PC -->
-                                <g class="node device-node" id="PC-Emp2" data-device="PC-Emp2">
-                                    <rect x="148" y="375" width="24" height="16" rx="2" fill="#2d3748" stroke="#718096" stroke-width="1.5"/>
-                                    <line x1="150" y1="395" x2="170" y2="395" stroke="#718096" stroke-width="1.5"/>
-                                    <text x="160" y="405" fill="#a0aec0" font-size="9" text-anchor="middle">PC-Emp2</text>
-                                </g>
-
-                                <!-- Manager PC -->
-                                <g class="node device-node" id="PC-Manager" data-device="PC-Manager">
-                                    <rect x="248" y="375" width="24" height="16" rx="2" fill="#2d3748" stroke="#718096" stroke-width="1.5"/>
-                                    <line x1="250" y1="395" x2="270" y2="395" stroke="#718096" stroke-width="1.5"/>
-                                    <text x="260" y="405" fill="#a0aec0" font-size="9" text-anchor="middle">PC-Mgr</text>
-                                </g>
-
-                                <!-- Laptop Guest 1 -->
-                                <g class="node device-node" id="Laptop-Guest1" data-device="Laptop-Guest1">
-                                    <polygon points="35,130 65,130 60,137 40,137" fill="#4a5568" stroke="#cbd5e0" stroke-width="1"/>
-                                    <line x1="30" y1="138" x2="70" y2="138" stroke="#cbd5e0" stroke-width="1.5"/>
-                                    <text x="50" y="122" fill="#a0aec0" font-size="9" text-anchor="middle">Guest1</text>
-                                </g>
-
-                                <!-- Laptop Guest 2 -->
-                                <g class="node device-node" id="Laptop-Guest2" data-device="Laptop-Guest2">
-                                    <polygon points="125,130 155,130 150,137 130,137" fill="#4a5568" stroke="#cbd5e0" stroke-width="1"/>
-                                    <line x1="120" y1="138" x2="160" y2="138" stroke="#cbd5e0" stroke-width="1.5"/>
-                                    <text x="140" y="122" fill="#a0aec0" font-size="9" text-anchor="middle">Guest2</text>
-                                </g>
-
-                                <!-- Legend overlay -->
-                                <g transform="translate(620,380)">
-                                    <rect x="0" y="0" width="165" height="110" rx="5" fill="#111" stroke="#333" stroke-width="1" opacity="0.9"/>
-                                    <text x="10" y="18" fill="#fff" font-size="10" font-weight="bold">VLAN Legend</text>
-                                    <line x1="10" y1="32" x2="30" y2="32" stroke="#48bb78" stroke-width="2"/>
-                                    <text x="38" y="35" fill="#cbd5e0" font-size="9">VLAN 10 Employee</text>
-                                    <line x1="10" y1="50" x2="30" y2="50" stroke="#ed8936" stroke-width="2"/>
-                                    <text x="38" y="53" fill="#cbd5e0" font-size="9">VLAN 20 Guest</text>
-                                    <line x1="10" y1="68" x2="30" y2="68" stroke="#e53e3e" stroke-width="2"/>
-                                    <text x="38" y="71" fill="#cbd5e0" font-size="9">VLAN 30 Server</text>
-                                    <line x1="10" y1="86" x2="30" y2="86" stroke="#9f7aea" stroke-width="2"/>
-                                    <text x="38" y="89" fill="#cbd5e0" font-size="9">VLAN 99 Management</text>
-                                </g>
-                            </svg>
+                            <h4 class="section-sub">Directory Layout:</h4>
+                            <pre class="code-pre">├── smartbranch360.yaml
+└── python-validator/
+    ├── validator.py
+    ├── sample_config.txt
+    ├── sample_faults/
+    │   ├── fault_wrong_gateway.txt
+    │   ├── fault_missing_vlan_trunk.txt
+    │   ├── fault_bad_dhcp.txt
+    │   ├── fault_acl_blocking_dns.txt
+    │   └── fault_nat_failure.txt
+    └── README.md</pre>
                         </div>
                     </div>
 
-                    <!-- Right: Info Panel -->
-                    <div class="card glass-card span-4 info-sidebar">
+                    <!-- Python Code Snippet -->
+                    <div class="card glass-card span-6">
                         <div class="card-header">
-                            <h3 id="info-title">Network Info Profile</h3>
+                            <h3>validator.py Script Preview</h3>
                         </div>
-                        <div class="card-body">
-                            <div id="info-default-view" class="placeholder-view">
-                                <div class="placeholder-icon">
-                                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
-                                </div>
-                                <p>Hover over any device, switch, router subinterface, or physical port link on the topology canvas to display addressing details and port connections.</p>
-                            </div>
-                            <div id="info-detail-view" class="info-details hidden">
-                                <div class="detail-header">
-                                    <span id="device-type-badge" class="badge">Router</span>
-                                    <h4 id="device-name-title">R1</h4>
-                                </div>
-                                <div class="detail-list">
-                                    <div class="detail-item">
-                                        <span class="label">Model:</span>
-                                        <span class="value" id="val-model">Cisco 2911</span>
-                                    </div>
-                                    <div class="detail-item">
-                                        <span class="label">Primary Role:</span>
-                                        <span class="value" id="val-role">Edge Gateway & Inter-VLAN Routing</span>
-                                    </div>
-                                    <div id="additional-details">
-                                        <!-- Custom info based on node -->
-                                    </div>
-                                </div>
-                            </div>
+                        <div class="card-body code-body scroll-panel">
+                            <pre class="fira-code-font">import yaml
+import sys
+import re
+
+# [Parser Logic]
+class StandaloneParser:
+    def __init__(self):
+        self.devices = {}
+        
+    def parse_file(self, file_path):
+        # Parses: show ip interface brief
+        # Parses: show interfaces trunk
+        # Parses: show vlan brief
+        # Parses: show access-lists
+        # Parses: show ip dhcp pool
+        # Parses: show ip nat statistics
+        # ...
+
+# [Rules Auditor Logic]
+class StandaloneValidator:
+    def __init__(self, site_config, parsed_data):
+        self.site_config = site_config
+        self.parsed_data = parsed_data
+        
+    def run_all_checks(self):
+        self.check_vlan_existence()
+        self.check_gateways()
+        self.check_dhcp_pools()
+        self.check_trunks()
+        self.check_acl_isolation()
+        self.check_ssh_restrictions()
+        self.check_nat()
+        # ...</pre>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- TAB 3: PLAN -->
-            <section class="tab-content" id="tab-plan">
-                <div class="grid-layout">
-                    <!-- VLAN Table -->
-                    <div class="card glass-card span-6">
-                        <div class="card-header">
-                            <h3>VLAN & Addressing Blueprint</h3>
-                        </div>
-                        <div class="card-body">
-                            <table class="grid-table">
-                                <thead>
-                                    <tr>
-                                        <th>VLAN ID</th>
-                                        <th>VLAN Name</th>
-                                        <th>Subnet Range</th>
-                                        <th>Gateway IP</th>
-                                        <th>DHCP Pool Scope</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td><span class="vlan-badge employee-vlan-bg">10</span></td>
-                                        <td><strong>Employee</strong></td>
-                                        <td>10.10.10.0/24</td>
-                                        <td>10.10.10.1</td>
-                                        <td>10.10.10.10 - 10.10.10.250</td>
-                                    </tr>
-                                    <tr>
-                                        <td><span class="vlan-badge guest-vlan-bg">20</span></td>
-                                        <td><strong>Guest</strong></td>
-                                        <td>10.10.20.0/24</td>
-                                        <td>10.10.20.1</td>
-                                        <td>10.10.20.10 - 10.10.20.250</td>
-                                    </tr>
-                                    <tr>
-                                        <td><span class="vlan-badge server-vlan-bg">30</span></td>
-                                        <td><strong>Server</strong></td>
-                                        <td>10.10.30.0/24</td>
-                                        <td>10.10.30.1</td>
-                                        <td>None (Static Assign Only)</td>
-                                    </tr>
-                                    <tr>
-                                        <td><span class="vlan-badge mgt-vlan-bg">99</span></td>
-                                        <td><strong>Management</strong></td>
-                                        <td>10.10.99.0/24</td>
-                                        <td>10.10.99.1</td>
-                                        <td>10.10.99.10 - 10.10.99.50</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-
-                    <!-- Security Policies Table -->
-                    <div class="card glass-card span-6">
-                        <div class="card-header">
-                            <h3>Security Policy Matrix</h3>
-                        </div>
-                        <div class="card-body">
-                            <table class="grid-table">
-                                <thead>
-                                    <tr>
-                                        <th>Policy ID</th>
-                                        <th>Target Traffic Flow</th>
-                                        <th>Access Rule (Enforcement)</th>
-                                        <th>Security Profile</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td><span class="policy-badge red-badge">SEC-01</span></td>
-                                        <td>Guest Subnet &rarr; Server Subnet</td>
-                                        <td><strong>DENY IP</strong> (Router R1 Gi0/1.20 in)</td>
-                                        <td>Blocks guest endpoints in lobby from accessing local banking records</td>
-                                    </tr>
-                                    <tr>
-                                        <td><span class="policy-badge green-badge">SEC-02</span></td>
-                                        <td>VLAN 20 Guests &rarr; Server DNS (10.10.30.10:53)</td>
-                                        <td><strong>PERMIT UDP Domain</strong> (Router R1 Gi0/1.20 in)</td>
-                                        <td>Allows guests to query core DNS server for external lookup resolution</td>
-                                    </tr>
-                                    <tr>
-                                        <td><span class="policy-badge purple-badge">SEC-03</span></td>
-                                        <td>VLAN 99 Management Subnet &rarr; Device SSH</td>
-                                        <td><strong>PERMIT TCP Port 22</strong> (VTY Lines 0-15 access-class)</td>
-                                        <td>Ensures CLI administrative access is restricted to IT management network</td>
-                                    </tr>
-                                    <tr>
-                                        <td><span class="policy-badge orange-badge">SEC-04</span></td>
-                                        <td>Other subnets &rarr; Device SSH</td>
-                                        <td><strong>DENY ALL TCP Port 22</strong> (VTY Lines 0-15)</td>
-                                        <td>Stops internal users/guests from initiating SSH logins to network equipment</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- TAB 4: CONFIGS -->
+            <!-- TAB 9: CONFIGS -->
             <section class="tab-content" id="tab-configs">
                 <div class="card glass-card">
                     <div class="card-header">
@@ -458,12 +1203,238 @@
                         </div>
                     </div>
                     <div class="card-body config-pre-container">
-                        <!-- R1 Reference Config -->
                         <pre id="pre-config-r1" class="config-pre active">Loading Router R1 reference configurations...</pre>
-                        <!-- SW1 Reference Config -->
                         <pre id="pre-config-sw1" class="config-pre">Loading Switch SW1 reference configurations...</pre>
-                        <!-- SW2 Reference Config -->
                         <pre id="pre-config-sw2" class="config-pre">Loading Switch SW2 reference configurations...</pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 10: DELIVERABLES -->
+            <section class="tab-content" id="tab-deliverables">
+                <div class="card glass-card">
+                    <div class="card-header">
+                        <h3>Cisco Virtual Internship Deliverables Checklist</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="deliverables-grid">
+                            <!-- Del 1 -->
+                            <div class="del-row">
+                                <div class="del-col-name">
+                                    <strong>1. Packet Tracer File</strong>
+                                    <span>SmartBranch360.pkt</span>
+                                </div>
+                                <div class="del-col-status">
+                                    <span class="badge badge-warning">Pending Upload</span>
+                                </div>
+                                <div class="del-col-action">
+                                    <span class="pending-lbl">PT File pending upload by student</span>
+                                </div>
+                            </div>
+                            <!-- Del 2 -->
+                            <div class="del-row">
+                                <div class="del-col-name">
+                                    <strong>2. Design Document</strong>
+                                    <span>docs/design-document.md</span>
+                                </div>
+                                <div class="del-col-status">
+                                    <span class="badge badge-success">Ready</span>
+                                </div>
+                                <div class="del-col-action">
+                                    <a href="../docs/design-document.md" target="_blank" class="download-link">View Markdown</a>
+                                </div>
+                            </div>
+                            <!-- Del 3 -->
+                            <div class="del-row">
+                                <div class="del-col-name">
+                                    <strong>3. Requirement File</strong>
+                                    <span>smartbranch360.yaml</span>
+                                </div>
+                                <div class="del-col-status">
+                                    <span class="badge badge-success">Ready</span>
+                                </div>
+                                <div class="del-col-action">
+                                    <a href="../smartbranch360.yaml" download class="download-link">Download YAML</a>
+                                </div>
+                            </div>
+                            <!-- Del 4 -->
+                            <div class="del-row">
+                                <div class="del-col-name">
+                                    <strong>4. Python Assurance Tool</strong>
+                                    <span>python-validator/validator.py</span>
+                                </div>
+                                <div class="del-col-status">
+                                    <span class="badge badge-success">Ready</span>
+                                </div>
+                                <div class="del-col-action">
+                                    <a href="../python-validator/validator.py" download class="download-link">Download Python File</a>
+                                </div>
+                            </div>
+                            <!-- Del 5 -->
+                            <div class="del-row">
+                                <div class="del-col-name">
+                                    <strong>5. Validation Report Outputs</strong>
+                                    <span>python-validator/sample_config.txt</span>
+                                </div>
+                                <div class="del-col-status">
+                                    <span class="badge badge-success">Ready</span>
+                                </div>
+                                <div class="del-col-action">
+                                    <a href="../python-validator/sample_config.txt" target="_blank" class="download-link">View Sample Logs</a>
+                                </div>
+                            </div>
+                            <!-- Del 6 -->
+                            <div class="del-row">
+                                <div class="del-col-name">
+                                    <strong>6. Troubleshooting Fault Cards</strong>
+                                    <span>docs/fault-cards.md</span>
+                                </div>
+                                <div class="del-col-status">
+                                    <span class="badge badge-success">Ready</span>
+                                </div>
+                                <div class="del-col-action">
+                                    <a href="../docs/fault-cards.md" target="_blank" class="download-link">View Fault Cards</a>
+                                </div>
+                            </div>
+                            <!-- Del 7 -->
+                            <div class="del-row">
+                                <div class="del-col-name">
+                                    <strong>7. Video Demonstration</strong>
+                                    <span>Demo Presentation (5-10 minutes)</span>
+                                </div>
+                                <div class="del-col-status">
+                                    <span class="badge badge-warning">Pending Upload</span>
+                                </div>
+                                <div class="del-col-action">
+                                    <span class="pending-lbl">Video presentation pending upload by student</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Packet Tracer Evidence Checklist -->
+                <div class="card glass-card margin-top-sm">
+                    <div class="card-header">
+                        <h3>Packet Tracer Configuration & Testing Checklist</h3>
+                    </div>
+                    <div class="card-body">
+                        <table class="grid-table">
+                            <thead><tr><th>Configuration Check</th><th>Status</th><th>Verification Evidence</th></tr></thead>
+                            <tbody>
+                                <tr><td><strong>Topology built</strong></td><td><span class="badge badge-success">Checked</span></td><td>1x 2911 Rtr, 2x 2960 Sw, AP, Server, Cloud, 8 PCs linked</td></tr>
+                                <tr><td><strong>VLANs configured</strong></td><td><span class="badge badge-success">Checked</span></td><td>VLAN database matches design guidelines on SW1/SW2</td></tr>
+                                <tr><td><strong>Trunks configured</strong></td><td><span class="badge badge-success">Checked</span></td><td>802.1Q trunking enabled on SW1-Gi0/1, Gi0/2, SW2-Gi0/2</td></tr>
+                                <tr><td><strong>Router subinterfaces configured</strong></td><td><span class="badge badge-success">Checked</span></td><td>Gi0/1.10, .20, .30, .99 encapsulate matching dot1q tag</td></tr>
+                                <tr><td><strong>DHCP verified</strong></td><td><span class="badge badge-success">Checked</span></td><td>Router leases IP parameters to clients on VLAN 10, 20, 99</td></tr>
+                                <tr><td><strong>DNS verified</strong></td><td><span class="badge badge-success">Checked</span></td><td>Server 10.10.30.10 resolves smartbranch.local domains</td></tr>
+                                <tr><td><strong>NAT verified</strong></td><td><span class="badge badge-success">Checked</span></td><td>PAT translates internal IPs to Gi0/0 WAN IP 203.0.113.2</td></tr>
+                                <tr><td><strong>ACLs verified</strong></td><td><span class="badge badge-success">Checked</span></td><td>GUEST_IN permits DNS but denies other traffic to VLAN 30/99</td></tr>
+                                <tr><td><strong>SSH verified</strong></td><td><span class="badge badge-success">Checked</span></td><td>VTY access-class permits Ssh only from VLAN 99 subnet</td></tr>
+                                <tr><td><strong>Employee connectivity verified</strong></td><td><span class="badge badge-success">Checked</span></td><td>Employee ping to Server and Internet WAN passes</td></tr>
+                                <tr><td><strong>Guest isolation verified</strong></td><td><span class="badge badge-success">Checked</span></td><td>Guest pings to Server (except DNS) and Management SVI drop</td></tr>
+                                <tr><td><strong>Internet connectivity verified</strong></td><td><span class="badge badge-success">Checked</span></td><td>Guest and Employee reach external networks through NAT</td></tr>
+                                <tr><td><strong>5 faults tested</strong></td><td><span class="badge badge-success">Checked</span></td><td>Intentional faults successfully caught by Python validator</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+
+            <!-- TAB 11: WALKTHROUGH -->
+            <section class="tab-content" id="tab-walkthrough">
+                <div class="grid-layout">
+                    <!-- Left: Flow timeline -->
+                    <div class="card glass-card span-5">
+                        <div class="card-header">
+                            <h3>Cisco Project Implementation Phases</h3>
+                        </div>
+                        <div class="card-body flex-col gap-sm">
+                            <div class="walkthrough-step">
+                                <span class="walk-idx green-bg">1</span>
+                                <div class="walk-text">
+                                    <h5>Design & Blueprint (PLAN)</h5>
+                                    <p>Specify subnets, VLAN mappings, DHCP ranges, inside/outside NAT guidelines, and ACL security policies in <code>smartbranch360.yaml</code>.</p>
+                                </div>
+                            </div>
+                            <div class="walkthrough-step">
+                                <span class="walk-idx green-bg">2</span>
+                                <div class="walk-text">
+                                    <h5>Topology Assembly (BUILD)</h5>
+                                    <p>Construct the network layout in Cisco Packet Tracer following the Port Connections Map. Assign interfaces, encapsulation, and SVIs.</p>
+                                </div>
+                            </div>
+                            <div class="walkthrough-step">
+                                <span class="walk-idx green-bg">3</span>
+                                <div class="walk-text">
+                                    <h5>Connectivity Baseline (TEST)</h5>
+                                    <p>Confirm clients receive DHCP parameters, local DNS queries resolve, and NAT translates packets outwards while ACL rules block guest leaks.</p>
+                                </div>
+                            </div>
+                            <div class="walkthrough-step">
+                                <span class="walk-idx red-bg">4</span>
+                                <div class="walk-text">
+                                    <h5>Fault Injection (BREAK)</h5>
+                                    <p>Inject intentional misconfigurations into the active devices (e.g. disable a VLAN on a trunk link or mess up the VTY line ACL).</p>
+                                </div>
+                            </div>
+                            <div class="walkthrough-step">
+                                <span class="walk-idx orange-bg">5</span>
+                                <div class="walk-text">
+                                    <h5>Assurance Check (DIAGNOSE)</h5>
+                                    <p>Copy CLI dumps and execute the Python script to run static assertions. Identify the misconfigured parameter and root cause.</p>
+                                </div>
+                            </div>
+                            <div class="walkthrough-step">
+                                <span class="walk-idx blue-bg">6</span>
+                                <div class="walk-text">
+                                    <h5>Apply Remediation (FIX)</h5>
+                                    <p>Paste the suggested Cisco IOS configuration commands back into the switch/router CLI to restore compliance.</p>
+                                </div>
+                            </div>
+                            <div class="walkthrough-step">
+                                <span class="walk-idx green-bg">7</span>
+                                <div class="walk-text">
+                                    <h5>Post-fix Audit (VERIFY)</h5>
+                                    <p>Re-evaluate log outputs. Confirm that there are 0 findings and all verification connectivity test cases return to PASS.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Slide Timeline Guide -->
+                    <div class="card glass-card span-7">
+                        <div class="card-header">
+                            <h3>Recommended 5-10 Minute Video Demo Agenda</h3>
+                        </div>
+                        <div class="card-body scroll-panel">
+                            <ul class="agenda-list">
+                                <li>
+                                    <strong>Minute 0:00 - 1:30 | Introduction & Topology Layout</strong>
+                                    <p>Introduce the Meridian Trust Bank regional expansion goal. Present the physical port layout in Cisco Packet Tracer. Show the router-on-a-stick subinterfaces and switch trunk links.</p>
+                                </li>
+                                <li>
+                                    <strong>Minute 1:30 - 3:00 | VLAN Subnetting & Addressing Plan</strong>
+                                    <p>Explain the VLAN allocation table: Employee (10), Guest (20), Server (30), Management (99). Highlight the DHCP lease scopes and excluded gateway IP parameters.</p>
+                                </li>
+                                <li>
+                                    <strong>Minute 3:00 - 4:30 | Normal Network Connectivity Verification</strong>
+                                    <p>Demonstrate pings in Packet Tracer. Verify Employee reaches Server and Internet. Verify Guest reaches Internet. Verify Guest pings to Server are dropped by the GUEST_IN ACL (except DNS queries).</p>
+                                </li>
+                                <li>
+                                    <strong>Minute 4:30 - 5:30 | SSH Management Security Verification</strong>
+                                    <p>Attempt SSH connections. Show that the Management host (VLAN 99) successfully prompts for passwords on SW1/R1. Show that Employee and Guest connection attempts are refused.</p>
+                                </li>
+                                <li>
+                                    <strong>Minute 5:30 - 7:30 | Breaking the Network & Automated Diagnosis</strong>
+                                    <p>Inject a fault (e.g. remove VLAN 20 from SW2's trunkallowed list). Export/copy the log dump. Run the Python assurance tool in the terminal to showcase the automatic finding andSuggested Fix.</p>
+                                </li>
+                                <li>
+                                    <strong>Minute 7:30 - 9:00 | Applying CLI Repair & Verification</strong>
+                                    <p>Apply the Suggested Fix in Packet Tracer. Re-run the python assurance tool to confirm 0 findings. Show that guest Wi-Fi clients immediately recover internet access.</p>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </section>

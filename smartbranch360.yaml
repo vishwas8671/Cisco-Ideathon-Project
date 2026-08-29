@@ -1,0 +1,43 @@
+site:
+  name: SmartBranch 360
+  type: branch-office
+
+devices:
+  router: 1
+  switches: 2
+  wireless_ap: 1
+  server: 1
+  endpoints: 8
+  internet_cloud: 1
+
+vlans:
+  - id: 10
+    name: Employee
+    subnet: 10.10.10.0/24
+    gateway: 10.10.10.1
+  - id: 20
+    name: Guest
+    subnet: 10.10.20.0/24
+    gateway: 10.10.20.1
+  - id: 30
+    name: Server
+    subnet: 10.10.30.0/24
+    gateway: 10.10.30.1
+  - id: 99
+    name: Management
+    subnet: 10.10.99.0/24
+    gateway: 10.10.99.1
+
+security:
+  guest_to_server: deny
+  guest_to_management: deny
+  management_to_ssh: allow
+  employee_to_server: allow
+  employee_to_internet: allow
+  guest_to_internet: allow
+
+services:
+  dhcp: true
+  dns: true
+  nat: true
+  inter_vlan_routing: true

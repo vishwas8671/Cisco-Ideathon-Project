@@ -1,0 +1,112 @@
+R1# show ip interface brief
+Interface              IP-Address      OK? Method Status                Protocol
+GigabitEthernet0/0     203.0.113.2     YES manual up                    up
+GigabitEthernet0/1     unassigned      YES unset  up                    up
+GigabitEthernet0/1.10  10.10.10.1      YES manual up                    up
+GigabitEthernet0/1.20  10.10.20.1      YES manual up                    up
+GigabitEthernet0/1.30  10.10.30.1      YES manual up                    up
+GigabitEthernet0/1.99  10.10.99.1      YES manual up                    up
+
+R1# show access-lists
+Extended IP access list GUEST_IN
+    10 permit udp 10.10.20.0 0.0.0.255 host 10.10.30.10 eq 53
+    20 deny ip 10.10.20.0 0.0.0.255 10.10.30.0 0.0.0.255
+    30 deny ip 10.10.20.0 0.0.0.255 10.10.99.0 0.0.0.255
+    40 permit ip any any
+Standard IP access list 99
+    10 permit 10.10.99.0 0.0.0.255
+    20 deny any
+
+R1# show ip dhcp pool
+Pool Employee-Pool :
+ Utilization mark (high/low)    : 100 / 0
+ Subnet size (standard/CIDR)    : 24 / 24
+ Total addresses                : 254
+ Leased addresses               : 0
+ Pending event                  : 0
+ 1 subnet is allocated in the pool :
+ Current index        IP address range                    Leased address
+ 10.10.10.1           10.10.10.10      - 10.10.10.250      0
+
+Pool Guest-Pool :
+ Utilization mark (high/low)    : 100 / 0
+ Subnet size (standard/CIDR)    : 24 / 24
+ Total addresses                : 254
+ Leased addresses               : 0
+ Pending event                  : 0
+ 1 subnet is allocated in the pool :
+ Current index        IP address range                    Leased address
+ 10.10.20.1           10.10.20.10      - 10.10.20.250      0
+
+Pool Management-Pool :
+ Utilization mark (high/low)    : 100 / 0
+ Subnet size (standard/CIDR)    : 24 / 24
+ Total addresses                : 254
+ Leased addresses               : 0
+ Pending event                  : 0
+ 1 subnet is allocated in the pool :
+ Current index        IP address range                    Leased address
+ 10.10.99.1           10.10.99.10      - 10.10.99.50       0
+
+R1# show ip nat statistics
+Total active translations: 2 (0 static, 2 dynamic; 2 extended)
+Outside interfaces:
+  GigabitEthernet0/0
+Inside interfaces:
+  GigabitEthernet0/1.10, GigabitEthernet0/1.20, GigabitEthernet0/1.30, GigabitEthernet0/1.99
+Hits: 12  Misses: 2
+Expired translations: 10
+Dynamic mappings:
+  [Id: 1] access-list NAT_ACL interface GigabitEthernet0/0 overload
+
+SW1# show ip interface brief
+Interface              IP-Address      OK? Method Status                Protocol
+Vlan99                 10.10.99.2      YES manual up                    up
+
+SW1# show vlan brief
+VLAN Name                             Status    Ports
+---- -------------------------------- --------- -------------------------------
+1    default                          active    Fa0/3, Fa0/4, Fa0/5, Fa0/6, Fa0/7, Fa0/8, Fa0/9
+10   Employee                         active    Fa0/1, Fa0/2
+20   Guest                            active    
+30   Server                           active    Fa0/10
+99   Management                       active    Fa0/11
+
+SW1# show interfaces trunk
+Port        Mode             Encapsulation  Status        Native vlan
+Gi0/1       on               802.1q         trunking      1
+Gi0/2       on               802.1q         trunking      1
+
+Port        Vlans allowed on trunk
+Gi0/1       10,20,30,99
+Gi0/2       10,20,30,99
+
+SW1# show access-lists
+Standard IP access list 99
+    10 permit 10.10.99.0 0.0.0.255
+    20 deny any
+
+SW2# show ip interface brief
+Interface              IP-Address      OK? Method Status                Protocol
+Vlan99                 10.10.99.3      YES manual up                    up
+
+SW2# show vlan brief
+VLAN Name                             Status    Ports
+---- -------------------------------- --------- -------------------------------
+1    default                          active    Fa0/4, Fa0/5
+10   Employee                         active    Fa0/1, Fa0/2, Fa0/3
+20   Guest                            active    Fa0/20
+30   Server                           active    
+99   Management                       active    
+
+SW2# show interfaces trunk
+Port        Mode             Encapsulation  Status        Native vlan
+Gi0/2       on               802.1q         trunking      1
+
+Port        Vlans allowed on trunk
+Gi0/2       10,20,30,99
+
+SW2# show access-lists
+Standard IP access list 99
+    10 permit 10.10.99.0 0.0.0.255
+    20 deny any
