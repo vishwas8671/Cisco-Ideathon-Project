@@ -4,8 +4,6 @@ SmartBranch 360 is an automated network design and configuration assurance utili
 
 ---
 
-
-
 ## 1. Problem Statement
 Retail banking branches require robust network segmentation to protect sensitive financial transactions, employee databases, and internal device terminals from public exposure. The branch network must support:
 - **Segmentation**: VLANs separating Teller/Employee, Guest, Server, and Management traffic.
