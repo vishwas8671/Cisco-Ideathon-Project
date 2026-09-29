@@ -14,6 +14,7 @@ Retail banking branches require robust network segmentation to protect sensitive
 ---
 
 
+
 ## 2. Repository Structure
 ```
 ├── smartbranch360.yaml        # Master declarative site configuration plan
