@@ -11,6 +11,7 @@ Retail banking branches require robust network segmentation to protect sensitive
 - **Secure Management**: Restricting SSH access to device CLI shells exclusively to the Management network.
 - **Service Assurance**: Standard DHCP leasing, internal/external DNS resolution, and NAT overload translation at the edge WAN.
 
+
 ## 2. Repository Structure
 ```
 ├── smartbranch360.yaml        # Master declarative site configuration plan
