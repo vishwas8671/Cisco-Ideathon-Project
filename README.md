@@ -3,8 +3,6 @@
 SmartBranch 360 is an automated network design and configuration assurance utility built for the **Meridian Trust Bank** regional retail branch expansion. It ensures strict inter-VLAN guest isolation, secure administrator access, local server DNS resolution, and lab WAN internet routing compliant with Cisco Enterprise and banking security standards.
 
 ---
-
-
 ## 1. Problem Statement
 Retail banking branches require robust network segmentation to protect sensitive financial transactions, employee databases, and internal device terminals from public exposure. The branch network must support:
 - **Segmentation**: VLANs separating Teller/Employee, Guest, Server, and Management traffic.
